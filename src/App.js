@@ -1,14 +1,13 @@
-import Banner from './components/Banner/Banner';
-import Categories from './components/Categories/Categories';
-import Header from './components/Header/Header';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Auth from './pages/Auth';
 
 function App() {
   return (
-    <div className='App'>
-      <Header />
-      <Banner />
-      <Categories />
-    </div>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/auth' element={<Auth />} />
+    </Routes>
   );
 }
 

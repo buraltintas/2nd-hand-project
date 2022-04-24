@@ -1,0 +1,120 @@
+.authContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.image {
+  height: 100vh;
+}
+
+.ctaContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoContainer {
+  width: 57rem;
+  margin-bottom: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginHeading h1 {
+  text-align: center;
+  margin-top: 7rem;
+  margin-bottom: 1rem;
+  font-size: 3.2rem;
+  line-height: 4.3rem;
+}
+
+.loginHeading p {
+  margin-bottom: 3.5rem;
+  line-height: 2rem;
+  font-size: 1.5rem;
+}
+
+.formContainer {
+  width: calc(57rem - 18rem);
+  height: 56rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 9rem;
+  padding-right: 9rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 38rem;
+}
+
+.inputContainer label {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.inputContainer input {
+  border: 1px solid transparent;
+  background-color: #f4f4f4;
+  height: 2.1rem;
+  border-radius: 0.8rem;
+  padding: 1.1rem 1.5rem;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.form p {
+  font-size: 1.2rem;
+  color: #b1b1b1;
+  text-align: end;
+  margin: 0.5rem;
+}
+
+.form button {
+  color: #fff;
+  background-color: #4b9ce2;
+  height: 4.5rem;
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border: none;
+  margin-top: 2rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.form button:hover {
+  background-color: #f0f8ff;
+  color: #4b9ce2;
+}
+
+.toggleText {
+  color: #525252;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.toggleText strong {
+  margin-left: 0.2rem;
+  color: #4b9ce2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+  padding: 0.2rem;
+}
+
+.toggleText strong:hover {
+  border: 1px solid #4b9ce2;
+  border-radius: 0.8rem;
+}

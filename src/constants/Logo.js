@@ -1,9 +1,9 @@
-const Logo = () => {
+const Logo = (props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      width='128.936'
-      height='42.04'
+      width={props.width || '128.94'}
+      height={props.height || '42.04'}
       viewBox='0 0 128.936 42.04'
     >
       <g

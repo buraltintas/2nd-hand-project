@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -26,8 +26,6 @@ const Categories = () => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
-    console.log(newValue);
-
     setValue(newValue);
   };
 
@@ -35,6 +33,9 @@ const Categories = () => {
     <div className={styles.categoriesContainer}>
       <Box sx={{ maxWidth: '100%', bgcolor: 'background.paper' }}>
         <Tabs
+          TabIndicatorProps={{
+            style: { background: '#4B9CE2', height: '2px', color: '#4B9CE2' },
+          }}
           className={styles.tabs}
           value={value}
           onChange={handleChange}
