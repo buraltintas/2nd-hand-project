@@ -8,6 +8,7 @@ const ProductProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState('Hepsi');
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [categoryValue, setCategoryValue] = useState(0);
+  const [error, setError] = useState(null);
 
   const categoryHandler = (category) => {
     setSelectedCategory(category);
@@ -25,11 +26,10 @@ const ProductProvider = ({ children }) => {
     axios
       .get('https://bootcamp.akbolat.net/products')
       .then((res) => {
-        console.log(res.data);
         setProducts(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        setError(err);
       });
   }, [selectedCategory, selectedProductId]);
 
@@ -43,6 +43,7 @@ const ProductProvider = ({ children }) => {
         selectedProductId,
         newCategoryValue,
         categoryValue,
+        error,
       }}
     >
       {children}

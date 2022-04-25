@@ -156,6 +156,7 @@ input[type='number'] {
 }
 
 .fileUploadContainer {
+  position: relative;
   width: 50%;
   padding-left: 4.75rem;
 }
@@ -188,6 +189,7 @@ input[type='number'] {
   border-radius: 1.5rem;
   background-color: #f4f4f4;
   color: #b1b1b1;
+  font-weight: bold;
   margin-bottom: 1rem;
 }
 
@@ -207,15 +209,38 @@ input[type='number'] {
 .cancelImage {
   position: absolute;
   top: -1rem;
-  right: 1.5rem;
+  left: 10rem;
   width: 3rem;
   cursor: pointer;
+}
+
+.submitButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 31rem;
+  height: 4.5rem;
+  background-color: #4b9ce2;
+  color: #fff;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.8rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #094e78;
+  color: #fff;
 }
 
 @media (max-width: 65em) {
   .newProductFormContainer {
     flex-direction: column;
-    height: 100%;
+    height: calc(100% + 5rem);
     justify-content: center;
     align-items: center;
   }
@@ -230,10 +255,18 @@ input[type='number'] {
     margin-top: 3rem;
     width: 100%;
     padding-left: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   .tlText {
     right: 1rem;
+  }
+
+  .submitButton {
+    margin-top: 3rem;
+    position: relative;
+    align-self: center;
   }
 }
 
@@ -267,5 +300,9 @@ input[type='number'] {
 
   .form select {
     margin-bottom: 0.5rem;
+  }
+
+  .submitButton {
+    width: 100%;
   }
 }

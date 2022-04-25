@@ -8,6 +8,14 @@ const NewProductForm = () => {
   const [checked, setChecked] = useState(false);
   const [files, setFiles] = useState([]);
 
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('');
+  const [brand, setBrand] = useState('');
+  const [color, setColor] = useState('');
+  const [status, setStatus] = useState('');
+  const [price, setPrice] = useState('');
+
   const { getRootProps, getInputProps } = useDropzone({
     maxFiles: 1,
     maxSize: 100000,
@@ -22,6 +30,8 @@ const NewProductForm = () => {
       );
     },
   });
+
+  console.log(files);
 
   const cancelImage = () => {
     setFiles([]);
@@ -48,12 +58,18 @@ const NewProductForm = () => {
     <section className={styles.newProductFormContainer}>
       <div className={styles.newProductForm}>
         <h1 className={styles.heading}>Ürün Detayları</h1>
-        <form className={styles.form}>
+        <form id='form' className={styles.form}>
           <label htmlFor='name'>Ürün Adı</label>
-          <input placeholder='Örnek: Iphone 12 Pro Max' id='name' type='text' />
+          <input
+            required
+            placeholder='Örnek: Iphone 12 Pro Max'
+            id='name'
+            type='text'
+          />
           <br />
           <label htmlFor='description'>Açıklama</label>
           <textarea
+            required
             placeholder='Ürün açıklaması girin'
             className={styles.descriptionInput}
             id='description'
@@ -110,6 +126,7 @@ const NewProductForm = () => {
 
           <div className={styles.priceInputcontainer}>
             <input
+              required
               placeholder='Bir fiyat girin'
               className={styles.priceInput}
               id='price'
@@ -160,6 +177,9 @@ const NewProductForm = () => {
             </svg>
           </div>
         )}
+        <button form='form' type='submit' className={styles.submitButton}>
+          Kaydet
+        </button>
       </div>
     </section>
   );

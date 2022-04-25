@@ -54,9 +54,14 @@
   width: 50%;
 }
 
-.price {
+.priceTop,
+.priceBottom {
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+
+.priceTop {
+  display: none;
 }
 
 .buttonsContainer {
@@ -99,6 +104,100 @@
 }
 
 .infoContainer p {
-  width: 47rem;
+  width: 100%;
   font-size: 1.5rem;
+}
+
+@media (max-width: 84.375em) {
+  .productContainer {
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .productImage {
+    margin-top: 3rem;
+  }
+
+  .infoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .imageContainer {
+    width: 100%;
+  }
+
+  .productImage {
+    width: 90%;
+    height: auto;
+  }
+}
+
+@media (max-width: 43em) {
+  .infoContainer {
+    width: 90%;
+    padding-left: 1rem;
+  }
+
+  .infoContainer h1 {
+    width: 90%;
+    font-size: 2.2rem;
+  }
+
+  .buttonsContainer {
+    width: 100%;
+  }
+
+  .buttonsContainer button {
+    width: 40%;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .productContainer {
+    width: 95%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 32em) {
+  .buttonsContainer {
+    width: 100vw;
+    height: auto;
+    margin: 0 auto;
+    position: fixed;
+    left: 0;
+    bottom: 2rem;
+    background-color: #fff;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .buttonsContainer button {
+    width: 45%;
+  }
+
+  .priceBottom {
+    display: none;
+  }
+
+  .priceTop {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem;
+  }
+
+  .detailContainer {
+    margin-top: 0.5rem;
+  }
+
+  .infoContainer h2 {
+    margin-top: 2rem;
+  }
 }

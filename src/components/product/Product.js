@@ -10,7 +10,7 @@ const Product = () => {
 
   const { id } = useParams();
 
-  console.log(id);
+  console.log(products);
 
   useEffect(() => {
     setProductToShow(
@@ -34,6 +34,9 @@ const Product = () => {
 
           <div className={styles.infoContainer}>
             <h1>{productToShow?.name}</h1>
+            <h1 className={styles.priceTop}>
+              {productToShow?.price?.toLocaleString('tr-TR')} TL
+            </h1>
             <div className={styles.infoDetailsContainer}>
               <div className={styles.detailContainer}>
                 <span className={styles.title}>Marka:</span>
@@ -45,10 +48,12 @@ const Product = () => {
               </div>
               <div className={styles.detailContainer}>
                 <span className={styles.title}>Kullanım durumu:</span>
-                <span className={styles.info}>{productToShow?.status}</span>
+                <span className={styles.info}>
+                  {productToShow?.status || 'Belirtilmemiş'}
+                </span>
               </div>
             </div>
-            <h1 className={styles?.price}>
+            <h1 className={styles.priceBottom}>
               {productToShow?.price?.toLocaleString('tr-TR')} TL
             </h1>
             <div className={styles.buttonsContainer}>

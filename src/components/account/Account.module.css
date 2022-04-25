@@ -1,0 +1,45 @@
+.accountContainer {
+  width: 77%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.userContainer {
+  width: calc(100% - 5.2rem);
+  height: 3.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.8rem;
+  padding: 1.6rem 2.6rem;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.userContainer button {
+  font-family: inherit;
+  width: 12.2rem;
+  height: 3rem;
+  border: none;
+  border-radius: 1.5rem;
+  background-color: #f77474;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.userContainer button:hover {
+  background-color: #b51d1d;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userInfo p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}

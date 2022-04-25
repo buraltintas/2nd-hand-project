@@ -19,8 +19,27 @@ const AuthProvider = ({ children }) => {
     if (cookies.token) {
       setToken(cookies.token);
       setIsLoggedIn(true);
+
+      axios.defaults.headers.common = {
+        Authorization: `Bearer ${cookies.token}`,
+      };
+
+      axios
+        .get('https://bootcamp.akbolat.net/users/me')
+        .then((res) => {
+          setUser(res.data);
+        })
+        .catch((err) => setError(err));
     }
-  }, []);
+  }, [cookies.token]);
+
+  const logoutHandler = () => {
+    setToken(null);
+    setUser(null);
+    setIsLoggedIn(false);
+    setCookie('token', '', { path: '/' });
+    navigate('/');
+  };
 
   const loginHandler = async (auth) => {
     try {
@@ -34,7 +53,6 @@ const AuthProvider = ({ children }) => {
       );
 
       if (response.status === 200) {
-        console.log(response.data);
         setUser(auth);
         setToken(response.data.jwt);
         document.cookie = `token=${response.data.jwt}`;
@@ -94,6 +112,7 @@ const AuthProvider = ({ children }) => {
         loginHandler,
         error,
         token,
+        logoutHandler,
       }}
     >
       {children}

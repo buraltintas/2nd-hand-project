@@ -1,6 +1,6 @@
 .cardContainer {
   position: relative;
-  width: 26rem;
+  width: 25rem;
   height: 39.2rem;
   background-color: #fff;
   border-radius: 0.8rem;
@@ -56,31 +56,21 @@
 
 .price {
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   left: 1rem;
 }
 
-@media (max-width: 64em) {
+@media (max-width: 90em) {
   .cardContainer {
-    width: 45%;
-    height: 28.5rem;
-  }
-
-  .productImage {
-    height: 20rem;
+    width: 24rem;
   }
 }
 
-@media (max-width: 48em) {
+/* @media (max-width: 43em) {
   .cardContainer {
-    width: 40%;
-    height: 28.5rem;
+    width: 24rem;
   }
-
-  .productImage {
-    height: 20rem;
-  }
-}
+} */
 
 @media (max-width: 37.5) {
   .brandAndColorContainer {
@@ -91,11 +81,12 @@
 
 @media (max-width: 32em) {
   .cardContainer {
-    width: 15rem;
-    height: 22.5rem;
+    width: 90%;
+    height: 30rem;
   }
 
   .productImage {
-    height: 15rem;
+    width: 80%;
+    height: auto;
   }
 }
