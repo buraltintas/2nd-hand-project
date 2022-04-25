@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .loginHeading h1 {
@@ -68,7 +69,7 @@
   font-size: 1.5rem;
 }
 
-.inputContainer input {
+.input {
   border: 1px solid transparent;
   background-color: #f4f4f4;
   height: 2.1rem;
@@ -76,6 +77,11 @@
   padding: 1.1rem 1.5rem;
   font-size: 16px;
   font-family: inherit;
+}
+
+.error {
+  border: 1px solid #f77474;
+  background-color: #fff2f2;
 }
 
 .form p {
@@ -97,6 +103,14 @@
   border-radius: 0.8rem;
   cursor: pointer;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .form button:hover {
@@ -122,4 +136,46 @@
 .toggleText strong:hover {
   border: 1px solid #4b9ce2;
   border-radius: 0.8rem;
+}
+
+.alert {
+  position: fixed;
+  top: 9rem;
+  right: 1.1rem;
+  width: 32rem;
+  height: 6rem;
+  border-radius: 0.8rem;
+  background-color: #ffe5e5;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  align-items: center;
+  padding-left: 1.2rem;
+}
+
+.alertClose {
+  transform: translateX(100%);
+}
+
+.alert p {
+  color: #f77474;
+  font-size: 1.6rem;
+  margin-left: 1rem;
+}
+
+@media (max-width: 97em) {
+  .formContainer {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    width: 70%;
+  }
+
+  .authImageContainer {
+    width: 40%;
+  }
+}
+
+@media (max-width: 85em) {
+  .authImageContainer {
+    display: none;
+  }
 }

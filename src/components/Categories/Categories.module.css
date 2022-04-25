@@ -16,3 +16,9 @@
   text-transform: none;
   font-family: 'Nunito', sans-serif;
 }
+
+@media (max-width: 32em) {
+  .categoriesContainer {
+    width: 95%;
+  }
+}

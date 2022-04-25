@@ -10,34 +10,46 @@ const Header = () => {
   const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const handleNewProductNavigate = () => {
+    navigate('/newProduct');
+  };
+
   const handleLoginNavigate = () => {
     navigate('/auth');
   };
 
   const handleAccountNavigate = () => {
-    navigate('/account');
+    navigate('/myAccount');
+  };
+
+  const goToHome = () => {
+    navigate('/');
   };
 
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerElements}>
-        <div className={styles.logoContainer}>
+        <div onClick={goToHome} className={styles.logoContainer}>
           <Logo />
         </div>
         <div className={styles.buttonsContainer}>
           {isLoggedIn && (
-            <button className={styles.button}>
-              <PlusIcon /> Ürün Ekle
+            <button
+              onClick={handleNewProductNavigate}
+              className={styles.button}
+            >
+              <PlusIcon />{' '}
+              <span className={styles.newAdvertText}>Ürün Ekle</span>
             </button>
           )}
 
           {isLoggedIn ? (
             <button onClick={handleAccountNavigate} className={styles.button}>
-              <ProfileIcon /> Hesabım
+              <ProfileIcon /> <span>Hesabım</span>
             </button>
           ) : (
             <button onClick={handleLoginNavigate} className={styles.button}>
-              <ProfileIcon /> Giriş Yap
+              <ProfileIcon /> <span>Giriş Yap</span>
             </button>
           )}
         </div>

@@ -1,0 +1,22 @@
+.productsContainer {
+  width: 77.1%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 16rem;
+  padding-top: 3rem;
+}
+
+@media (max-width: 64em) {
+  .productsContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 32em) {
+  .productsContainer {
+    width: 95%;
+  }
+}

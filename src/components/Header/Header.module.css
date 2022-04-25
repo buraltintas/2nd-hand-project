@@ -43,3 +43,13 @@
   background-color: #094e78;
   color: #fff;
 }
+
+@media (max-width: 32em) {
+  .newAdvertText {
+    display: none;
+  }
+
+  .headerElements {
+    width: 95%;
+  }
+}

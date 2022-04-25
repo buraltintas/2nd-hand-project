@@ -1,0 +1,101 @@
+.cardContainer {
+  position: relative;
+  width: 26rem;
+  height: 39.2rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cardContainer:hover {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.cardContainer:hover .productImage {
+  transform: scale(1.02);
+}
+
+.cardContainer:hover .brandAndColorContainer {
+  transform: translateY(1rem);
+}
+
+.productImage {
+  height: 29.7rem;
+  border-radius: 0.8rem;
+  transition: all 0.3s;
+}
+
+.brandAndColorContainer {
+  width: 100%;
+  margin-top: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s;
+}
+
+.brandName {
+  color: #4b9ce2;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.colorName {
+  color: #3e3e3e;
+  font-size: 1.3rem;
+}
+
+.color {
+  font-weight: bold;
+}
+
+.price {
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+}
+
+@media (max-width: 64em) {
+  .cardContainer {
+    width: 45%;
+    height: 28.5rem;
+  }
+
+  .productImage {
+    height: 20rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .cardContainer {
+    width: 40%;
+    height: 28.5rem;
+  }
+
+  .productImage {
+    height: 20rem;
+  }
+}
+
+@media (max-width: 37.5) {
+  .brandAndColorContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 32em) {
+  .cardContainer {
+    width: 15rem;
+    height: 22.5rem;
+  }
+
+  .productImage {
+    height: 15rem;
+  }
+}

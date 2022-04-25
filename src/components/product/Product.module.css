@@ -1,0 +1,104 @@
+.productContainer {
+  width: 77%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  height: 77rem;
+  display: flex;
+  margin-bottom: 21rem;
+}
+
+.imageContainer {
+  width: 48.3%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productImage {
+  height: 73.7rem;
+  border-radius: 0.8rem;
+}
+
+.infoContainer {
+  width: calc(51.7% - 6rem);
+  padding-left: 6rem;
+}
+
+.infoContainer h1 {
+  margin-top: 3rem;
+  font-size: 3.4rem;
+}
+
+.infoDetailsContainer {
+  width: 30rem;
+  font-size: 1.5rem;
+}
+
+.detailContainer {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.info {
+  width: 50%;
+}
+
+.price {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.buttonsContainer {
+  width: 47rem;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.buttonsContainer button {
+  width: 23.5rem;
+  height: 4.5rem;
+  border-radius: 0.8rem;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.buttonsContainer button:first-child {
+  background-color: #4b9ce2;
+  color: #fff;
+}
+
+.buttonsContainer button:nth-child(2) {
+  background-color: #f0f8ff;
+  color: #4b9ce2;
+}
+
+.buttonsContainer button:hover {
+  background-color: #094e78;
+  color: #fff;
+}
+
+.infoContainer h2 {
+  font-size: 1.8rem;
+}
+
+.infoContainer p {
+  width: 47rem;
+  font-size: 1.5rem;
+}

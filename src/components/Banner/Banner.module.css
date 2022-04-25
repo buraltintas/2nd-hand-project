@@ -6,4 +6,11 @@
 
 .banner {
   width: 100%;
+  border-radius: 0.8rem;
+}
+
+@media (max-width: 32em) {
+  .bannerContainer {
+    width: 95%;
+  }
 }
