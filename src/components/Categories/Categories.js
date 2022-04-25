@@ -10,7 +10,8 @@ const Categories = () => {
   const [value, setValue] = useState(0);
   const [categories, setCategories] = useState([]);
 
-  const { categoryHandler } = useContext(ProductContext);
+  const { categoryHandler, newCategoryValue, categoryValue } =
+    useContext(ProductContext);
 
   useEffect(() => {
     axios
@@ -21,7 +22,9 @@ const Categories = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+
+    setValue(categoryValue);
+  }, [categoryValue]);
 
   const handleChange = (event, newValue) => {
     if (newValue === 0) {
@@ -30,6 +33,7 @@ const Categories = () => {
       categoryHandler(categories[newValue - 1].name);
     }
 
+    newCategoryValue(newValue);
     setValue(newValue);
   };
 

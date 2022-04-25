@@ -9,10 +9,9 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [error, setError] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
   const [cookies, setCookie] = useCookies(['token']);
+  const [isLoggedIn, setIsLoggedIn] = useState(cookies.token ? true : false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 

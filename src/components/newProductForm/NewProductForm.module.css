@@ -1,0 +1,271 @@
+.newProductFormContainer {
+  width: calc(77% - 6rem);
+  margin: 0 auto;
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  height: 75rem;
+  display: flex;
+  margin-bottom: 21rem;
+  padding: 3rem;
+}
+
+.newProductForm {
+  width: 60%;
+  height: 60rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #f2f2f2;
+  padding-right: 4.7rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.form input {
+  border-radius: 0.8rem;
+  border: none;
+  background-color: #f4f4f4;
+  color: #3e3e3e;
+  height: 4.5rem;
+  font-size: 16px;
+  padding-left: 1.5rem;
+}
+
+.form input::placeholder {
+  color: #99a0a7;
+  font-family: 'Nunito', sans-serif;
+}
+
+.form select {
+  border-radius: 0.8rem;
+  border: none;
+  background-color: #f4f4f4;
+  height: 4.5rem;
+  font-size: 16px;
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+}
+
+.form select:invalid {
+  color: #99a0a7;
+}
+
+select:required:invalid {
+  color: #99a0a7;
+  font-family: 'Nunito', sans-serif;
+}
+option[value=''][disabled] {
+  display: none;
+  font-family: 'Nunito', sans-serif;
+}
+option {
+  color: #99a0a7;
+  font-family: 'Nunito', sans-serif;
+}
+
+.descriptionInput {
+  height: 9rem !important;
+  border-radius: 0.8rem;
+  border: none;
+  background-color: #f4f4f4;
+  color: #3e3e3e;
+  font-family: 'Nunito', sans-serif;
+  height: 4.5rem;
+  font-size: 16px;
+  padding-left: 1.5rem;
+  padding-top: 1.1rem;
+  resize: none;
+}
+
+.descriptionInput::placeholder {
+  color: #99a0a7;
+  font-family: 'Nunito', sans-serif;
+}
+
+.priceInputcontainer {
+  width: 23.6rem;
+  height: 4.5rem;
+  position: relative;
+}
+
+.priceInput {
+  width: 23.6rem;
+}
+
+.priceInput::placeholder {
+  color: #99a0a7;
+  font-family: 'Nunito', sans-serif;
+}
+
+.tlText {
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+  font-size: 1.6rem;
+  color: #99a0a7;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.selectContainer {
+  width: 100%;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.selectContainer div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.offerContainer {
+  width: 26.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.offerContainer p {
+  color: #b1b1b1;
+  font-size: 1.6rem;
+}
+
+.fileUploadContainer {
+  width: 50%;
+  padding-left: 4.75rem;
+}
+
+.uploadSpace {
+  width: 100%;
+  height: 16.4rem;
+  border: 1px dashed #b1b1b1;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dragAndDropText,
+.orText {
+  font-size: 1.4rem;
+}
+
+.orText {
+  margin-bottom: 0.5rem;
+}
+
+.uploadButton {
+  font-family: inherit;
+  width: 12.2rem;
+  height: 3rem;
+  border: none;
+  border-radius: 1.5rem;
+  background-color: #f4f4f4;
+  color: #b1b1b1;
+  margin-bottom: 1rem;
+}
+
+.fileValidationText {
+  color: #b1b1b1;
+  font-size: 1.2rem;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.fileImage {
+  border-radius: 1rem;
+}
+
+.cancelImage {
+  position: absolute;
+  top: -1rem;
+  right: 1.5rem;
+  width: 3rem;
+  cursor: pointer;
+}
+
+@media (max-width: 65em) {
+  .newProductFormContainer {
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .newProductForm {
+    width: 100%;
+    border-right: none;
+    padding: 0;
+  }
+
+  .fileUploadContainer {
+    margin-top: 3rem;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .tlText {
+    right: 1rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .selectContainer {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .priceInputcontainer {
+    width: 100%;
+  }
+
+  .priceInput {
+    width: 95%;
+  }
+
+  .offerContainer {
+    width: 103%;
+  }
+
+  .newProductForm {
+    height: 100%;
+  }
+}
+
+@media (max-width: 32em) {
+  .newProductFormContainer {
+    width: 80%;
+  }
+
+  .form select {
+    margin-bottom: 0.5rem;
+  }
+}

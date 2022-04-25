@@ -7,9 +7,14 @@ const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('Hepsi');
   const [selectedProductId, setSelectedProductId] = useState(null);
+  const [categoryValue, setCategoryValue] = useState(0);
 
   const categoryHandler = (category) => {
     setSelectedCategory(category);
+  };
+
+  const newCategoryValue = (value) => {
+    setCategoryValue(value);
   };
 
   const productSelectHandler = (id) => {
@@ -36,6 +41,8 @@ const ProductProvider = ({ children }) => {
         selectedCategory,
         productSelectHandler,
         selectedProductId,
+        newCategoryValue,
+        categoryValue,
       }}
     >
       {children}

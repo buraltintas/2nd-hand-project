@@ -12,6 +12,7 @@ const Card = (props) => {
   const productClickHandler = (id) => {
     navigate(`/products/${id}`);
     productSelectHandler(id);
+    window.scroll({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
