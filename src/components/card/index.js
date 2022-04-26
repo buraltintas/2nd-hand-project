@@ -27,9 +27,14 @@ const Card = (props) => {
     }
   }, [selectedCategory, props.products]);
 
+  console.log(productsToShow);
+
   return (
     <>
-      {productsToShow.length < 1 && <h1>Bu kategoride ürün bulunmuyor.</h1>}
+      {productsToShow.length < 1 && selectedCategory !== 'Hepsi' && (
+        <h1>Bu kategoride ürün bulunmuyor.</h1>
+      )}
+
       {productsToShow.map((product) => (
         <div
           onClick={() => productClickHandler(product.id)}
@@ -38,7 +43,7 @@ const Card = (props) => {
         >
           <img
             className={styles.productImage}
-            src={`https://bootcamp.akbolat.net/${product?.image?.formats?.small?.url}`}
+            src={`https://bootcamp.akbolat.net${product?.image?.url}`}
             alt={product.name}
           />
 

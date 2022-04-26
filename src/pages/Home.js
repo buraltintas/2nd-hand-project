@@ -1,7 +1,7 @@
-import Header from '../components/header/Header';
-import Banner from '../components/banner/Banner';
-import Categories from '../components/categories/Categories';
-import Products from '../components/products/Products';
+import Header from '../components/header';
+import Banner from '../components/banner';
+import Categories from '../components/categories';
+import Products from '../components/products';
 
 const Home = () => {
   return (

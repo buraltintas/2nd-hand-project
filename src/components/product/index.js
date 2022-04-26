@@ -35,7 +35,7 @@ const Product = () => {
       setProductToShow(res.data);
       setLoading(false);
     });
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -44,7 +44,7 @@ const Product = () => {
           <div className={styles.imageContainer}>
             <img
               className={styles.productImage}
-              src={`https://bootcamp.akbolat.net/${productToShow?.image?.formats?.large?.url}`}
+              src={`https://bootcamp.akbolat.net/${productToShow?.image?.url}`}
               alt='productToShow?.name'
             />
           </div>

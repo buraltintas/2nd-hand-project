@@ -26,6 +26,8 @@ const Categories = () => {
     setValue(categoryValue);
   }, [categoryValue]);
 
+  console.log(categories);
+
   const handleChange = (event, newValue) => {
     if (newValue === 0) {
       categoryHandler('Hepsi');

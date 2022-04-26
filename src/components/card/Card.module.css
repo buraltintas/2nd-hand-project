@@ -1,5 +1,6 @@
 .cardContainer {
   position: relative;
+  margin: 0 auto;
   width: 25rem;
   height: 39.2rem;
   background-color: #fff;

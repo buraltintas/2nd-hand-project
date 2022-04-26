@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
+import { useCookies, coo } from 'react-cookie';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -34,10 +34,12 @@ const AuthProvider = ({ children }) => {
   }, [cookies.token]);
 
   const logoutHandler = () => {
+    document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    axios.defaults.headers.common = {
+      Authorization: ``,
+    };
     setToken(null);
-    setUser(null);
     setIsLoggedIn(false);
-    setCookie('token', '', { path: '/' });
     navigate('/');
   };
 
@@ -53,18 +55,16 @@ const AuthProvider = ({ children }) => {
       );
 
       if (response.status === 200) {
-        setUser(auth);
         setToken(response.data.jwt);
         document.cookie = `token=${response.data.jwt}`;
+        setUser(response.data);
         setIsLoggedIn(true);
         setIsLoading(false);
         navigate('/');
       }
     } catch (err) {
-      console.log(err);
       setIsLoading(false);
-      setError('Böyle bir kullanıcı yok!');
-
+      setError('Eposta veya şifre hatalı!');
       setTimeout(() => {
         setError(null);
       }, 4000);
@@ -83,7 +83,6 @@ const AuthProvider = ({ children }) => {
         }
       );
       if (response.status === 200) {
-        setUser(auth);
         setToken(response.data.jwt);
         document.cookie = `token=${response.data.jwt}`;
         setIsLoggedIn(true);

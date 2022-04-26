@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
-import Login from '../components/authForm/AuthForm';
+import AuthForm from '../components/authForm';
 
 const Auth = () => {
-  return <Login />;
+  return <AuthForm />;
 };
 
 export default Auth;

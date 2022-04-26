@@ -16,6 +16,7 @@ function App() {
         <Route path='/myAccount' element={<MyAccount />} />
         <Route path='/newProduct' element={<NewProduct />} />
       </Route>
+      <Route path='*' element={<Home />} />
     </Routes>
   );
 }

@@ -1,5 +1,5 @@
-import Header from '../components/header/Header';
-import Product from '../components/product/Product';
+import Header from '../components/header';
+import Product from '../components/product';
 
 const ProductDetail = () => {
   return (

@@ -1,5 +1,5 @@
-import Account from '../components/account/Account';
-import Header from '../components/header/Header';
+import Account from '../components/account';
+import Header from '../components/header';
 
 const MyAccount = () => {
   return (

@@ -22,7 +22,7 @@ const ProductProvider = ({ children }) => {
     setSelectedProductId(id);
   };
 
-  useEffect(() => {
+  const fetchProducts = () => {
     axios
       .get('https://bootcamp.akbolat.net/products')
       .then((res) => {
@@ -31,7 +31,7 @@ const ProductProvider = ({ children }) => {
       .catch((err) => {
         setError(err);
       });
-  }, [selectedCategory, selectedProductId]);
+  };
 
   return (
     <ProductContext.Provider
@@ -44,6 +44,7 @@ const ProductProvider = ({ children }) => {
         newCategoryValue,
         categoryValue,
         error,
+        fetchProducts,
       }}
     >
       {children}
