@@ -225,6 +225,7 @@ const NewProductForm = () => {
               className={styles.priceInput}
               id='price'
               type='number'
+              onWheel={(event) => event.currentTarget.blur()}
             />
             <span className={styles.tlText}>TL</span>
           </div>

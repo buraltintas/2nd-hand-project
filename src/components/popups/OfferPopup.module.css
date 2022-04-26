@@ -1,0 +1,146 @@
+.offerPopupContainer {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(75, 156, 226, 0.7);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogContainer {
+  position: relative;
+  padding: 2rem 2.6rem;
+  width: 44rem;
+  height: 42.8rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 1.6rem;
+  right: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.productInfoContainer {
+  height: 6rem;
+  background-color: #f0f8ff;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem;
+  margin-bottom: 2rem;
+}
+
+.price {
+  margin-bottom: 0 !important;
+  font-size: 1.8rem;
+}
+
+.imgNameContainer {
+  display: flex;
+  align-items: center;
+}
+
+.imgNameContainer p {
+  font-size: 1.3rem;
+  max-width: 13rem;
+  margin-left: 0.7rem;
+}
+
+.productImage {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+
+.dialogContainer h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1.6rem;
+}
+
+.readyOffer {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.8rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.active {
+  border: 1px solid #4b9ce2;
+  background-color: #f0f8ff;
+  color: #4b9ce2;
+}
+
+.dialogContainer input {
+  width: calc(100% - 1.5rem);
+  border-radius: 0.8rem;
+  border: none;
+  background-color: #f4f4f4;
+  color: #3e3e3e;
+  height: 4.5rem;
+  font-size: 16px;
+  font-family: inherit;
+  padding-left: 1.5rem;
+}
+
+.dialogContainer input::placeholder {
+  color: #99a0a7;
+  font-family: 'Nunito', sans-serif;
+}
+
+.dialogContainer button {
+  width: 31rem;
+  height: 4.5rem;
+  border-radius: 0.8rem;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #4b9ce2;
+  color: #fff;
+  align-self: center;
+}
+
+.dialogContainer button:hover {
+  background-color: #094e78;
+  color: #fff;
+}
+
+.priceInputcontainer {
+  width: 100%;
+  height: 4.5rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.tlText {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 1.8rem;
+  color: #99a0a7;
+}

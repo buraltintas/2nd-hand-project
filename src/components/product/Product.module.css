@@ -72,6 +72,19 @@
   gap: 1rem;
 }
 
+.soldText {
+  width: 23rem;
+  height: 4.5rem;
+  font-size: 1.8rem;
+  border-radius: 0.8rem;
+  color: #faad60;
+  background-color: #fff0e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
 .buttonsContainer button {
   width: 23.5rem;
   height: 4.5rem;
@@ -106,6 +119,18 @@
 .infoContainer p {
   width: 100%;
   font-size: 1.5rem;
+}
+
+.loadingContainer {
+  background-color: rgba(75, 156, 226, 0.6);
+  margin: 0 auto;
+  margin-top: 3rem;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
 }
 
 @media (max-width: 84.375em) {

@@ -1,40 +1,52 @@
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { ProductContext } from '../../context/ProductContext';
 import styles from './Product.module.css';
 import LoadingSpinner from '../loading/LoadingSpinner';
+import BuyPopup from '../popups/BuyPopup';
+import OfferPopup from '../popups/OfferPopup';
 
 const Product = () => {
   const [productToShow, setProductToShow] = useState({});
-  const { products, selectedProductId } = useContext(ProductContext);
+  const [loading, setLoading] = useState(true);
+  const [openBuyPopup, setOpenBuyPopup] = useState(false);
+  const [openOfferPopup, setOpenOfferPopup] = useState(false);
 
   const { id } = useParams();
 
-  console.log(products);
+  const openBuyPopupHandler = () => {
+    setOpenBuyPopup(true);
+  };
+
+  const closeBuyPopupHandler = () => {
+    setOpenBuyPopup(false);
+  };
+
+  const openOfferPopupHandler = () => {
+    setOpenOfferPopup(true);
+  };
+
+  const closeOfferPopupHandler = () => {
+    setOpenOfferPopup(false);
+  };
 
   useEffect(() => {
-    setProductToShow(
-      products.find((product) => product.id === selectedProductId)
-    );
-
-    setProductToShow(products.find((product) => product.id == id));
-  }, [selectedProductId, products]);
+    axios.get(`https://bootcamp.akbolat.net/products/${id}`).then((res) => {
+      setProductToShow(res.data);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <>
-      {productToShow && (
+      {!loading ? (
         <section className={styles.productContainer}>
           <div className={styles.imageContainer}>
-            {productToShow ? (
-              <img
-                className={styles.productImage}
-                src={`https://bootcamp.akbolat.net/${productToShow?.image?.formats?.large?.url}`}
-                alt='productToShow?.name'
-              />
-            ) : (
-              <LoadingSpinner />
-            )}
+            <img
+              className={styles.productImage}
+              src={`https://bootcamp.akbolat.net/${productToShow?.image?.formats?.large?.url}`}
+              alt='productToShow?.name'
+            />
           </div>
 
           <div className={styles.infoContainer}>
@@ -61,14 +73,33 @@ const Product = () => {
             <h1 className={styles.priceBottom}>
               {productToShow?.price?.toLocaleString('tr-TR')} TL
             </h1>
-            <div className={styles.buttonsContainer}>
-              <button>Satın Al</button>
-              <button>Teklif Ver</button>
-            </div>
+            {!productToShow.isSold ? (
+              <div className={styles.buttonsContainer}>
+                <button onClick={openBuyPopupHandler}>Satın Al</button>
+                {productToShow.isOfferable && (
+                  <button onClick={openOfferPopupHandler}>Teklif Ver</button>
+                )}
+              </div>
+            ) : (
+              <div className={styles.soldText}>Bu Ürün Satışta Değil</div>
+            )}
             <h2>Açıklama</h2>
             <p>{productToShow?.description}</p>
           </div>
         </section>
+      ) : (
+        <div className={styles.loadingContainer}>
+          <LoadingSpinner />
+        </div>
+      )}
+
+      {openBuyPopup && <BuyPopup closeBuyPopupHandler={closeBuyPopupHandler} />}
+
+      {openOfferPopup && (
+        <OfferPopup
+          product={productToShow}
+          closeOfferPopupHandler={closeOfferPopupHandler}
+        />
       )}
     </>
   );
