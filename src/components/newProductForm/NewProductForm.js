@@ -11,6 +11,8 @@ const NewProductForm = () => {
   const [checked, setChecked] = useState(false);
   const [files, setFiles] = useState([]);
 
+  const [image, setImage] = useState('');
+
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -31,8 +33,6 @@ const NewProductForm = () => {
   const submitProduct = async (e) => {
     e.preventDefault();
 
-    console.log(files[0]);
-
     const formData = new FormData();
     formData.append('name', nameRef.current.value);
     formData.append('description', descriptionRef.current.value);
@@ -50,8 +50,10 @@ const NewProductForm = () => {
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${cookies.token}`,
       },
     });
+
     console.log(response);
   };
 
@@ -243,7 +245,11 @@ const NewProductForm = () => {
         <h1 className={styles.heading}>Ürün Görseli</h1>
         {!images.length > 0 && (
           <div {...getRootProps()} className={styles.uploadSpace}>
-            <input {...getInputProps()} />
+            <input
+              type='file'
+              onChange={(e) => setImage(e.target.value)}
+              {...getInputProps()}
+            />
             <UploadIcon />
             <p className={styles.dragAndDropText}>Sürükleyip bırakarak yükle</p>
             <p className={styles.orText}>veya</p>
