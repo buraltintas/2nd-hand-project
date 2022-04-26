@@ -45,8 +45,6 @@ const NewProductForm = () => {
       (category) => category.name === categoryRef.current.value
     );
 
-    console.log(selectedCategoryId);
-
     const productData = {
       name: nameRef.current.value,
       description: descriptionRef.current.value,

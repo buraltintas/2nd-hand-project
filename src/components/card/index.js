@@ -27,8 +27,6 @@ const Card = (props) => {
     }
   }, [selectedCategory, props.products]);
 
-  console.log(productsToShow);
-
   return (
     <>
       {productsToShow.length < 1 && selectedCategory !== 'Hepsi' && (

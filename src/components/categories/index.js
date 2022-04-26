@@ -20,13 +20,11 @@ const Categories = () => {
         setCategories(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        alert(err);
       });
 
     setValue(categoryValue);
   }, [categoryValue]);
-
-  console.log(categories);
 
   const handleChange = (event, newValue) => {
     if (newValue === 0) {
