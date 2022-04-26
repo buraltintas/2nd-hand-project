@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { ProductContext } from '../../context/ProductContext';
 import styles from './Product.module.css';
+import LoadingSpinner from '../loading/LoadingSpinner';
 
 const Product = () => {
   const [productToShow, setProductToShow] = useState({});
@@ -25,11 +26,15 @@ const Product = () => {
       {productToShow && (
         <section className={styles.productContainer}>
           <div className={styles.imageContainer}>
-            <img
-              className={styles.productImage}
-              src={`https://bootcamp.akbolat.net/${productToShow?.image?.formats?.large?.url}`}
-              alt='productToShow?.name'
-            />
+            {productToShow ? (
+              <img
+                className={styles.productImage}
+                src={`https://bootcamp.akbolat.net/${productToShow?.image?.formats?.large?.url}`}
+                alt='productToShow?.name'
+              />
+            ) : (
+              <LoadingSpinner />
+            )}
           </div>
 
           <div className={styles.infoContainer}>
