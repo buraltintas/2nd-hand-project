@@ -7,11 +7,9 @@ import Switch from '@mui/material/Switch';
 import axios from 'axios';
 
 const NewProductForm = () => {
-  const [cookies, setCookie] = useCookies(['token']);
+  const [cookies] = useCookies(['token']);
   const [checked, setChecked] = useState(false);
   const [files, setFiles] = useState([]);
-
-  const [image, setImage] = useState('');
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -245,11 +243,7 @@ const NewProductForm = () => {
         <h1 className={styles.heading}>Ürün Görseli</h1>
         {!images.length > 0 && (
           <div {...getRootProps()} className={styles.uploadSpace}>
-            <input
-              type='file'
-              onChange={(e) => setImage(e.target.value)}
-              {...getInputProps()}
-            />
+            <input {...getInputProps()} />
             <UploadIcon />
             <p className={styles.dragAndDropText}>Sürükleyip bırakarak yükle</p>
             <p className={styles.orText}>veya</p>
