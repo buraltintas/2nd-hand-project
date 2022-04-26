@@ -7,8 +7,6 @@ import styles from './Account.module.css';
 const Account = () => {
   const { user, logoutHandler } = useContext(AuthContext);
 
-  console.log(user);
-
   return (
     <section className={styles.accountContainer}>
       <div className={styles.userContainer}>

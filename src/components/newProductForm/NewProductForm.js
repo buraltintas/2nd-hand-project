@@ -1,20 +1,90 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { useCookies } from 'react-cookie';
 import UploadIcon from '../../constants/UploadIcon';
 import styles from './NewProductForm.module.css';
 import Switch from '@mui/material/Switch';
+import axios from 'axios';
 
 const NewProductForm = () => {
+  const [cookies, setCookie] = useCookies(['token']);
   const [checked, setChecked] = useState(false);
   const [files, setFiles] = useState([]);
 
-  const [title, setTitle] = useState('');
+  const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
-  const [brand, setBrand] = useState('');
-  const [color, setColor] = useState('');
-  const [status, setStatus] = useState('');
   const [price, setPrice] = useState('');
+
+  const [categories, setCategories] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [colors, setColors] = useState([]);
+  const [statuses, setStatuses] = useState([]);
+
+  const nameRef = useRef();
+  const descriptionRef = useRef();
+  const categoryRef = useRef();
+  const brandRef = useRef();
+  const colorRef = useRef();
+  const statusRef = useRef();
+  const priceRef = useRef();
+
+  const submitProduct = async (e) => {
+    e.preventDefault();
+
+    console.log(files[0]);
+
+    const formData = new FormData();
+    formData.append('name', nameRef.current.value);
+    formData.append('description', descriptionRef.current.value);
+    formData.append('price', priceRef.current.value);
+    formData.append('category', categoryRef.current.value);
+    formData.append('brand', brandRef.current.value);
+    formData.append('color', colorRef.current.value);
+    formData.append('status', statusRef.current.value);
+    formData.append('isOfferable', checked);
+    formData.append('image', files[0]);
+
+    const response = await axios({
+      method: 'POST',
+      url: 'https://bootcamp.akbolat.net/products',
+      data: formData,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log(response);
+  };
+
+  const getCategories = () => {
+    axios.get('https://bootcamp.akbolat.net/categories').then((res) => {
+      setCategories(res.data);
+    });
+  };
+
+  const getBrands = () => {
+    axios.get('https://bootcamp.akbolat.net/brands').then((res) => {
+      setBrands(res.data);
+    });
+  };
+
+  const getColors = () => {
+    axios.get('https://bootcamp.akbolat.net/colors').then((res) => {
+      setColors(res.data);
+    });
+  };
+
+  const getStatuses = () => {
+    axios.get('https://bootcamp.akbolat.net/using-statuses').then((res) => {
+      setStatuses(res.data);
+    });
+  };
+
+  useEffect(() => {
+    getCategories();
+    getBrands();
+    getColors();
+    getStatuses();
+  }, []);
 
   const { getRootProps, getInputProps } = useDropzone({
     maxFiles: 1,
@@ -30,8 +100,6 @@ const NewProductForm = () => {
       );
     },
   });
-
-  console.log(files);
 
   const cancelImage = () => {
     setFiles([]);
@@ -58,9 +126,12 @@ const NewProductForm = () => {
     <section className={styles.newProductFormContainer}>
       <div className={styles.newProductForm}>
         <h1 className={styles.heading}>Ürün Detayları</h1>
-        <form id='form' className={styles.form}>
+        <form onSubmit={submitProduct} id='form' className={styles.form}>
           <label htmlFor='name'>Ürün Adı</label>
           <input
+            ref={nameRef}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
             placeholder='Örnek: Iphone 12 Pro Max'
             id='name'
@@ -69,6 +140,9 @@ const NewProductForm = () => {
           <br />
           <label htmlFor='description'>Açıklama</label>
           <textarea
+            ref={descriptionRef}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
             placeholder='Ürün açıklaması girin'
             className={styles.descriptionInput}
@@ -79,7 +153,7 @@ const NewProductForm = () => {
           <div className={styles.selectContainer}>
             <div>
               <label htmlFor='category'>Kategori</label>
-              <select required>
+              <select ref={categoryRef} required>
                 <option
                   className={styles.optionPlaceholder}
                   value=''
@@ -89,36 +163,53 @@ const NewProductForm = () => {
                 >
                   Kategori seç
                 </option>
-                <option value='' key=''></option>
+                {categories.map((category) => (
+                  <option value={category.name} key={category.id}>
+                    {category.name}
+                  </option>
+                ))}
               </select>
             </div>
             <div>
               <label htmlFor='brand'>Marka</label>
-              <select required>
+              <select ref={brandRef} required>
                 <option value='' disabled selected hidden>
                   Marka seç
                 </option>
-                <option value='' key=''></option>
+                {brands.map((brand) => (
+                  <option value={brand.name} key={brand.id}>
+                    {brand.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
           <div className={styles.selectContainer}>
             <div>
               <label htmlFor='color'>Renk</label>
-              <select required>
+              <select ref={colorRef} required>
                 <option value='' disabled selected hidden>
                   Renk seç
                 </option>
-                <option value='' key=''></option>
+                {colors.map((color) => (
+                  <option value={color.name} key={color.id}>
+                    {color.name}
+                  </option>
+                ))}
               </select>
             </div>
             <div>
               <label htmlFor='status'>Kullanım Durumu</label>
-              <select required>
+              <select ref={statusRef} required>
                 <option value='' disabled selected hidden>
                   Kullanım durumu seç
                 </option>
-                <option value='' key=''></option>
+
+                {statuses.map((status) => (
+                  <option value={status.name} key={status.id}>
+                    {status.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -126,6 +217,9 @@ const NewProductForm = () => {
 
           <div className={styles.priceInputcontainer}>
             <input
+              ref={priceRef}
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
               required
               placeholder='Bir fiyat girin'
               className={styles.priceInput}
