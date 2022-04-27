@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useCookies, coo } from 'react-cookie';
+import { useCookies } from 'react-cookie';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const AuthContext = React.createContext();
 
@@ -9,11 +9,13 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [error, setError] = useState(null);
-  const [cookies, setCookie] = useCookies(['token']);
+  const [cookies] = useCookies(['token']);
   const [isLoggedIn, setIsLoggedIn] = useState(cookies.token ? true : false);
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state ? location.state.from : '/';
 
   useEffect(() => {
     if (cookies.token) {
@@ -27,6 +29,7 @@ const AuthProvider = ({ children }) => {
       axios
         .get('https://bootcamp.akbolat.net/users/me')
         .then((res) => {
+          console.log(res.data);
           setUser(res.data);
         })
         .catch((err) => setError(err));
@@ -38,6 +41,7 @@ const AuthProvider = ({ children }) => {
     axios.defaults.headers.common = {
       Authorization: ``,
     };
+    setUser(null);
     setToken(null);
     setIsLoggedIn(false);
     navigate('/');
@@ -57,10 +61,10 @@ const AuthProvider = ({ children }) => {
       if (response.status === 200) {
         setToken(response.data.jwt);
         document.cookie = `token=${response.data.jwt}`;
-        setUser(response.data);
+        setUser(response.data.user);
         setIsLoggedIn(true);
         setIsLoading(false);
-        navigate('/');
+        navigate(from, { replace: true });
       }
     } catch (err) {
       setIsLoading(false);

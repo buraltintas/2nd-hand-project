@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import styles from './Product.module.css';
@@ -11,6 +12,9 @@ const Product = () => {
   const [loading, setLoading] = useState(true);
   const [openBuyPopup, setOpenBuyPopup] = useState(false);
   const [openOfferPopup, setOpenOfferPopup] = useState(false);
+  const { user } = useContext(AuthContext);
+
+  const userId = user?.id || user?.user?.id;
 
   const { id } = useParams();
 
@@ -73,16 +77,24 @@ const Product = () => {
             <h1 className={styles.priceBottom}>
               {productToShow?.price?.toLocaleString('tr-TR')} TL
             </h1>
-            {!productToShow.isSold ? (
-              <div className={styles.buttonsContainer}>
-                <button onClick={openBuyPopupHandler}>Satın Al</button>
-                {productToShow.isOfferable && (
-                  <button onClick={openOfferPopupHandler}>Teklif Ver</button>
+
+            {productToShow?.users_permissions_user?.id !== userId && (
+              <>
+                {!productToShow?.isSold ? (
+                  <div className={styles.buttonsContainer}>
+                    <button onClick={openBuyPopupHandler}>Satın Al</button>
+                    {productToShow.isOfferable && (
+                      <button onClick={openOfferPopupHandler}>
+                        Teklif Ver
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <div className={styles.soldText}>Bu Ürün Satışta Değil</div>
                 )}
-              </div>
-            ) : (
-              <div className={styles.soldText}>Bu Ürün Satışta Değil</div>
+              </>
             )}
+
             <h2>Açıklama</h2>
             <p>{productToShow?.description}</p>
           </div>
@@ -93,10 +105,13 @@ const Product = () => {
         </div>
       )}
 
-      {openBuyPopup && <BuyPopup closeBuyPopupHandler={closeBuyPopupHandler} />}
+      {openBuyPopup && (
+        <BuyPopup userId={userId} closeBuyPopupHandler={closeBuyPopupHandler} />
+      )}
 
       {openOfferPopup && (
         <OfferPopup
+          userId={userId}
           product={productToShow}
           closeOfferPopupHandler={closeOfferPopupHandler}
         />

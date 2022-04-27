@@ -55,7 +55,7 @@ const NewProductForm = () => {
       price: priceRef.current.value,
       isOfferable: checked,
       isSold: false,
-      users_permission_user: user.id,
+      users_permissions_user: user.id,
     };
 
     const formData = new FormData();

@@ -1,6 +1,22 @@
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './BuyPopup.module.css';
 
 const BuyPopup = (props) => {
+  const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const buyButtonHandler = () => {
+    if (!user) {
+      navigate('/auth', { state: { from: location } });
+    } else {
+      console.log(user);
+    }
+  };
+
   return (
     <div className={styles.buyPopupContainer}>
       <div className={styles.dialogContainer}>
@@ -13,7 +29,9 @@ const BuyPopup = (props) => {
           >
             Vazgeç
           </button>
-          <button className={styles.confirmButton}>Satın Al</button>
+          <button onClick={buyButtonHandler} className={styles.confirmButton}>
+            Satın Al
+          </button>
         </div>
       </div>
     </div>

@@ -1,0 +1,121 @@
+.offersContainer {
+  width: 77%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: calc(100% - 5.2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.8rem;
+  padding: 1.6rem 2.6rem;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.tabsContainer {
+  width: 100%;
+}
+
+.tabs {
+  border-bottom: 0.5px solid #e0e0e0;
+}
+
+.tab {
+  color: #b1b1b1;
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-transform: none;
+  font-family: 'Nunito', sans-serif;
+}
+
+.offers {
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  border: 1px solid #f2f2f2;
+  border-radius: 0.8rem;
+}
+
+.productInfoContainer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.imageContainer {
+  width: 7.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textContainer {
+  margin-top: 1.4rem;
+}
+
+.productName {
+  font-size: 1.8rem;
+}
+
+.receivedOfferText {
+  width: 21rem;
+  height: 2rem;
+  background-color: #f2f2f2;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  font-size: 1.5rem;
+  color: #b1b1b1;
+  margin-top: 0.7rem;
+}
+
+.receivedOfferText strong {
+  font-size: 1.5rem;
+  color: #525252;
+}
+
+.productImage {
+  height: 8.4rem;
+  width: auto;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+
+.buttonsContainer {
+  margin-right: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.buttonsContainer button {
+  width: 8.6rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.8rem;
+  color: #ffffff;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.confirmButton {
+  background-color: #4b9ce2;
+}
+
+.confirmButton:hover {
+  background-color: #094e78;
+}
+
+.rejectButton {
+  background-color: #f77474;
+}
+
+.rejectButton:hover {
+  background-color: #c31c1c;
+}

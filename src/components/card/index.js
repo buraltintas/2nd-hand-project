@@ -33,27 +33,31 @@ const Card = (props) => {
         <h1>Bu kategoride ürün bulunmuyor.</h1>
       )}
 
-      {productsToShow.map((product) => (
-        <div
-          onClick={() => productClickHandler(product.id)}
-          key={product.id}
-          className={styles.cardContainer}
-        >
-          <img
-            className={styles.productImage}
-            src={`https://bootcamp.akbolat.net${product?.image?.url}`}
-            alt={product.name}
-          />
+      {productsToShow.map((product) => {
+        return (
+          <div
+            onClick={() => productClickHandler(product.id)}
+            key={product.id}
+            className={styles.cardContainer}
+          >
+            <img
+              className={styles.productImage}
+              src={`https://bootcamp.akbolat.net${product?.image?.url}`}
+              alt={product.name}
+            />
 
-          <div className={styles.brandAndColorContainer}>
-            <span className={styles.brandName}>{product.brand}</span>
-            <span className={styles.colorName}>
-              <span className={styles.color}>Renk:</span> {product.color}
-            </span>
+            <div className={styles.brandAndColorContainer}>
+              <span className={styles.brandName}>{product.brand}</span>
+              <span className={styles.colorName}>
+                <span className={styles.color}>Renk:</span> {product.color}
+              </span>
+            </div>
+            <h1 className={styles.price}>
+              {product.price.toLocaleString('tr-TR')} TL
+            </h1>
           </div>
-          <h1 className={styles.price}>{product.price} TL</h1>
-        </div>
-      ))}
+        );
+      })}
     </>
   );
 };

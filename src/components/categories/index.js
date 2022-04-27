@@ -53,7 +53,12 @@ const Categories = () => {
         >
           <Tab className={styles.tab} label='Hepsi' />
           {categories.map((categoryName, index) => (
-            <Tab key={index} className={styles.tab} label={categoryName.name} />
+            <Tab
+              key={index}
+              value={categoryName.id}
+              className={styles.tab}
+              label={categoryName.name}
+            />
           ))}
         </Tabs>
       </Box>
