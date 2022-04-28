@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react';
+
 import { ProductContext } from '../../context/ProductContext';
 import styles from './Products.module.css';
 import Card from '../card';

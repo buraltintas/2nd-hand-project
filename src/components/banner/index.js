@@ -1,4 +1,5 @@
 import banner from '../../assets/Banner.png';
+
 import styles from './Banner.module.css';
 
 const Banner = () => {
