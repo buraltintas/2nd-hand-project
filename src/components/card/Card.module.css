@@ -103,5 +103,6 @@
 @media (max-width: 28em) {
   .cardContainer {
     height: 25rem;
+    height: 32rem;
   }
 }
