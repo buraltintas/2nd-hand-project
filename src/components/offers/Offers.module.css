@@ -136,9 +136,9 @@
 .pendingText,
 .confirmedText,
 .rejectedText {
+  width: 10rem;
   font-size: 1.5rem;
   margin-right: 3rem;
-  width: 30%;
   text-align: end;
 }
 
@@ -152,6 +152,37 @@
 
 .rejectedText {
   color: #f77474;
+}
+
+.loadingContainer {
+  background-color: rgba(75, 156, 226, 0.6);
+  margin: 0 auto;
+  margin-top: 3rem;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+}
+
+.alert {
+  position: fixed;
+  top: 9rem;
+  right: 1.1rem;
+  width: 32rem;
+  height: 6rem;
+  border-radius: 0.8rem;
+  background-color: #f1fff0;
+  color: #46af32;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  align-items: center;
+  padding-left: 1.2rem;
 }
 
 @media (max-width: 48em) {

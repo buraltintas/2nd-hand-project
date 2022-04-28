@@ -98,7 +98,7 @@ const AuthProvider = ({ children }) => {
       }
     } catch (err) {
       setIsLoading(false);
-      console.log(err);
+      alert(err);
       setIsLoading(false);
       setError('Hata oldu, tekrar deneyiniz!');
 

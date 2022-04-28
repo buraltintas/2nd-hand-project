@@ -16,12 +16,6 @@ const Offers = () => {
   const [givenOffers, setGivenOffers] = useState([]);
   const [receivedOffers, setReceivedOffers] = useState([]);
 
-  const [showReceivedOffers, setShowReceivedOffers] = useState(
-    () => () => true
-  );
-
-  const [offers, setOffers] = useState([]);
-
   const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
@@ -94,9 +88,21 @@ const Offers = () => {
         </Box>
       </div>
 
-      {value === 1 && <ReceivedOffers receivedOffers={receivedOffers} />}
+      {value === 1 && (
+        <ReceivedOffers
+          user={user}
+          receivedOffers={receivedOffers}
+          getReceivedOffers={getReceivedOffers}
+        />
+      )}
 
-      {value === 2 && <GivenOffers givenOffers={givenOffers} />}
+      {value === 2 && (
+        <GivenOffers
+          user={user}
+          givenOffers={givenOffers}
+          getGivenOffers={getGivenOffers}
+        />
+      )}
     </section>
   );
 };

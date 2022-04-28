@@ -42,7 +42,6 @@ const Product = () => {
     axios
       .delete(`https://bootcamp.akbolat.net/offers/${offerId}`)
       .then((res) => {
-        console.log(res);
         getProductData();
       })
       .catch((err) => alert(err));
@@ -142,7 +141,7 @@ const Product = () => {
 
             {productToShow?.users_permissions_user?.id !== user?.id && (
               <>
-                {!productToShow?.isSold ? (
+                {!productToShow?.isSold && (
                   <div className={styles.buttonsContainer}>
                     <button onClick={openBuyPopupHandler}>Satın Al</button>
                     {productToShow.isOfferable && !userHasOffer && (
@@ -157,10 +156,12 @@ const Product = () => {
                       </button>
                     )}
                   </div>
-                ) : (
-                  <div className={styles.soldText}>Bu Ürün Satışta Değil</div>
                 )}
               </>
+            )}
+
+            {productToShow?.isSold && (
+              <div className={styles.soldText}>Bu Ürün Satışta Değil</div>
             )}
 
             <h2>Açıklama</h2>
