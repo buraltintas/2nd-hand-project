@@ -63,3 +63,15 @@
   background-color: #094e78;
   color: #fff;
 }
+
+.loadingContainer {
+  background-color: rgba(75, 156, 226, 0.6);
+  margin: 0 auto;
+  margin-top: 3rem;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+}

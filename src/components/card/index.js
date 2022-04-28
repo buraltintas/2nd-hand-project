@@ -30,7 +30,7 @@ const Card = (props) => {
   return (
     <>
       {productsToShow.length < 1 && selectedCategory !== 'Hepsi' && (
-        <h1>Bu kategoride ürün bulunmuyor.</h1>
+        <h1 className={styles.notFoundText}>Bu kategoride ürün bulunmuyor.</h1>
       )}
 
       {productsToShow.map((product) => {

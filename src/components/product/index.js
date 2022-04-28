@@ -6,15 +6,18 @@ import styles from './Product.module.css';
 import LoadingSpinner from '../loading/LoadingSpinner';
 import BuyPopup from '../popups/BuyPopup';
 import OfferPopup from '../popups/OfferPopup';
+import DoneIcon from '../../constants/DoneIcon';
 
 const Product = () => {
   const [productToShow, setProductToShow] = useState({});
   const [loading, setLoading] = useState(true);
+  const [isPurchased, setIsPurchased] = useState(false);
+  const [userHasOffer, setUserHasOffer] = useState(false);
+  const [offerId, setOfferId] = useState(null);
+  const [offerForRecentProduct, setOfferForRecentProduct] = useState(null);
   const [openBuyPopup, setOpenBuyPopup] = useState(false);
   const [openOfferPopup, setOpenOfferPopup] = useState(false);
   const { user } = useContext(AuthContext);
-
-  const userId = user?.id || user?.user?.id;
 
   const { id } = useParams();
 
@@ -34,12 +37,62 @@ const Product = () => {
     setOpenOfferPopup(false);
   };
 
+  const cancelOfferHandler = () => {
+    setLoading(true);
+    axios
+      .delete(`https://bootcamp.akbolat.net/offers/${offerId}`)
+      .then((res) => {
+        console.log(res);
+        getProductData();
+      })
+      .catch((err) => alert(err));
+  };
+
+  const getProductData = () => {
+    axios
+      .get(`https://bootcamp.akbolat.net/products/${id}`)
+      .then((res) => {
+        setProductToShow(res.data);
+        setLoading(false);
+      })
+      .catch((err) => alert(err));
+  };
+
+  const showPurchasedAlert = () => {
+    setIsPurchased(true);
+
+    setTimeout(() => {
+      setIsPurchased(false);
+    }, [2500]);
+  };
+
   useEffect(() => {
-    axios.get(`https://bootcamp.akbolat.net/products/${id}`).then((res) => {
-      setProductToShow(res.data);
-      setLoading(false);
-    });
+    getProductData();
   }, [id]);
+
+  useEffect(() => {
+    if (user) {
+      setUserHasOffer(
+        productToShow?.offers?.some(
+          (offer) => offer.users_permissions_user === user.id
+        )
+      );
+
+      if (userHasOffer) {
+        setOfferForRecentProduct(
+          productToShow.offers.filter(
+            (offer) => offer.users_permissions_user === user.id
+          )[0]?.offerPrice
+        );
+
+        setOfferId(
+          productToShow.offers.filter(
+            (offer) => offer.users_permissions_user === user.id
+          )[0]?.id
+        );
+      }
+    }
+  }, [productToShow.offers, userHasOffer, user?.id, user]);
 
   return (
     <>
@@ -78,14 +131,29 @@ const Product = () => {
               {productToShow?.price?.toLocaleString('tr-TR')} TL
             </h1>
 
-            {productToShow?.users_permissions_user?.id !== userId && (
+            {offerForRecentProduct && (
+              <div className={styles.recentOfferText}>
+                Verilen Teklif:&nbsp;
+                <strong>
+                  {offerForRecentProduct.toLocaleString('tr-TR')} TL
+                </strong>
+              </div>
+            )}
+
+            {productToShow?.users_permissions_user?.id !== user?.id && (
               <>
                 {!productToShow?.isSold ? (
                   <div className={styles.buttonsContainer}>
                     <button onClick={openBuyPopupHandler}>Satın Al</button>
-                    {productToShow.isOfferable && (
+                    {productToShow.isOfferable && !userHasOffer && (
                       <button onClick={openOfferPopupHandler}>
                         Teklif Ver
+                      </button>
+                    )}
+
+                    {productToShow.isOfferable && userHasOffer && (
+                      <button onClick={cancelOfferHandler}>
+                        Teklifi Geri Çek
                       </button>
                     )}
                   </div>
@@ -106,15 +174,29 @@ const Product = () => {
       )}
 
       {openBuyPopup && (
-        <BuyPopup userId={userId} closeBuyPopupHandler={closeBuyPopupHandler} />
+        <BuyPopup
+          showPurchasedAlert={showPurchasedAlert}
+          getProductData={getProductData}
+          userId={user?.id}
+          product={productToShow}
+          closeBuyPopupHandler={closeBuyPopupHandler}
+        />
       )}
 
       {openOfferPopup && (
         <OfferPopup
-          userId={userId}
+          getProductData={getProductData}
+          userId={user?.id}
           product={productToShow}
           closeOfferPopupHandler={closeOfferPopupHandler}
         />
+      )}
+
+      {isPurchased && (
+        <div className={styles.alert}>
+          <DoneIcon />
+          <p>Satın Alındı</p>
+        </div>
       )}
     </>
   );

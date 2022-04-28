@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
 import UserImage from '../../constants/UserImage';
@@ -6,11 +6,7 @@ import styles from './Account.module.css';
 import Offers from '../offers';
 
 const Account = () => {
-  const { user, logoutHandler, tokenAuth } = useContext(AuthContext);
-
-  useEffect(() => {
-    tokenAuth();
-  }, []);
+  const { user, logoutHandler } = useContext(AuthContext);
 
   return (
     <>

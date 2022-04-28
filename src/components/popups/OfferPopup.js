@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import LoadingSpinner from '../loading/LoadingSpinner';
@@ -12,6 +13,10 @@ const OfferPopup = (props) => {
   const [offerInput, setOfferInput] = useState('');
   const [selectedOffer, setSelectedOffer] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const inputRef = useRef();
 
@@ -31,9 +36,19 @@ const OfferPopup = (props) => {
   };
 
   const sendOfferHandler = async () => {
-    setIsLoading(true);
+    if (!props.userId && inputRef.current.value > 0) {
+      setError('');
+      navigate('/auth', { state: { from: location } });
+    }
 
-    if (inputRef.current.value > 0) {
+    if (inputRef.current.value === '') {
+      setError('Teklif tutarı giriniz!');
+    }
+
+    if (inputRef.current.value > 0 && props.userId) {
+      setIsLoading(true);
+      setError('');
+
       axios.defaults.headers.common = {
         Authorization: `Bearer ${cookies.token}`,
       };
@@ -72,6 +87,12 @@ const OfferPopup = (props) => {
   useEffect(() => {
     if (offerInput.length < 1) {
       setSelectedOffer(null);
+    }
+  }, [offerInput]);
+
+  useEffect(() => {
+    if (offerInput.length > 0) {
+      setError('');
     }
   }, [offerInput]);
 
@@ -137,9 +158,12 @@ const OfferPopup = (props) => {
               placeholder='Teklif Belirle'
               type='number'
               onWheel={(event) => event.currentTarget.blur()}
+              required
             />
 
             <span className={styles.tlText}>TL</span>
+
+            <p className={styles.errorText}>{error}</p>
           </div>
 
           <button disabled={isLoading} onClick={sendOfferHandler}>

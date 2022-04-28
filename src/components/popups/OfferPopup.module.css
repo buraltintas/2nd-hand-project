@@ -146,6 +146,12 @@
   color: #99a0a7;
 }
 
+.errorText {
+  color: #f77474;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
 .loadingContainer {
   background-color: rgba(75, 156, 226, 0.6);
   margin: 0 auto;

@@ -61,6 +61,14 @@
   left: 1rem;
 }
 
+.notFoundText {
+  width: 100%;
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #4b9ce2;
+  font-size: 2rem;
+}
+
 @media (max-width: 90em) {
   .cardContainer {
     width: 24rem;
@@ -83,11 +91,17 @@
 @media (max-width: 32em) {
   .cardContainer {
     width: 90%;
-    height: 30rem;
+    height: 28rem;
   }
 
   .productImage {
     width: 80%;
     height: auto;
+  }
+}
+
+@media (max-width: 24em) {
+  .cardContainer {
+    height: 25rem;
   }
 }
