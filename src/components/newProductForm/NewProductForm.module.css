@@ -254,6 +254,26 @@ input[type='number'] {
   margin-top: 6rem;
 }
 
+.alert {
+  position: fixed;
+  top: 9rem;
+  right: 1.1rem;
+  width: 32rem;
+  height: 6rem;
+  border-radius: 0.8rem;
+  background-color: #ffe5e5;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  align-items: center;
+  padding-left: 1.2rem;
+}
+
+.alert p {
+  color: #f77474;
+  font-size: 1.6rem;
+  margin-left: 1rem;
+}
+
 @media (max-width: 65em) {
   .newProductFormContainer {
     flex-direction: column;

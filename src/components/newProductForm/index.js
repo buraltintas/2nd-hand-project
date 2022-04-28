@@ -8,12 +8,14 @@ import UploadIcon from '../../constants/UploadIcon';
 import styles from './NewProductForm.module.css';
 import Switch from '@mui/material/Switch';
 import axios from 'axios';
+import AlertIcon from '../../constants/AlertIcon';
 
 const NewProductForm = () => {
   const [cookies] = useCookies(['token']);
   const [checked, setChecked] = useState(false);
   const [files, setFiles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [done, setDone] = useState(false);
 
   const [name, setName] = useState('');
@@ -117,7 +119,7 @@ const NewProductForm = () => {
     maxFiles: 1,
     maxSize: 100000,
     accept: 'image/jpeg,image/png',
-    onDrop: (acceptedFiles) => {
+    onDrop: (acceptedFiles, fileRejections) => {
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -125,12 +127,30 @@ const NewProductForm = () => {
           })
         )
       );
+
+      fileRejections.forEach((err) => {
+        console.log(err.errors[0].code);
+        if (
+          err?.errors[0]?.code === 'file-too-large' ||
+          err.code === 'file-invalid-type'
+        ) {
+          setError('Lütfen geçerli bir görsel seçiniz!');
+        }
+      });
     },
   });
 
   const cancelImage = () => {
     setFiles([]);
   };
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setError(null);
+      }, [3000]);
+    }
+  }, [error]);
 
   const images = files.map((file) => (
     <div key={file.name}>
@@ -320,6 +340,13 @@ const NewProductForm = () => {
         <h1 className={styles.doneText}>
           Ürününüz başarıyla eklendi, anasayfaya yönlendiriliyorsunuz!
         </h1>
+      )}
+
+      {error && (
+        <div className={styles.alert}>
+          <AlertIcon />
+          <p>{error}</p>
+        </div>
       )}
     </>
   );
