@@ -91,7 +91,7 @@
 @media (max-width: 32em) {
   .cardContainer {
     width: 90%;
-    height: 28rem;
+    height: 30rem;
   }
 
   .productImage {
@@ -100,7 +100,7 @@
   }
 }
 
-@media (max-width: 24em) {
+@media (max-width: 28em) {
   .cardContainer {
     height: 25rem;
   }

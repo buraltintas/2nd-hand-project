@@ -226,14 +226,14 @@
 
 @media (max-width: 37.5em) {
   .productContainer {
-    width: 95%;
+    width: 90%;
     height: 100%;
   }
 }
 
 @media (max-width: 32em) {
   .buttonsContainer {
-    width: 100vw;
+    width: 100%;
     height: auto;
     margin: 0 auto;
     position: fixed;

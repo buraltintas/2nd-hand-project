@@ -130,7 +130,7 @@ const Product = () => {
               {productToShow?.price?.toLocaleString('tr-TR')} TL
             </h1>
 
-            {offerForRecentProduct && (
+            {offerForRecentProduct && !productToShow.isSold && (
               <div className={styles.recentOfferText}>
                 Verilen Teklif:&nbsp;
                 <strong>
