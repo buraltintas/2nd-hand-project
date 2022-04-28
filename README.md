@@ -19,3 +19,61 @@ In this application user can sell their used products or they can buy others pro
 - You can view the offers you have given and received on the 'My Account' page. You can evaluate the offers you receive. If your offers are accepted, you can complete the purchase.
 - You can share the link of products with your friends so they can buy or sell their used products.
 - Enjoy!
+
+## Demo
+
+Live demo: https://2nd-hand-project.netlify.app/
+
+## API Documentation
+
+API: https://bootcamp.akbolat.net/documentation/v1.0.0
+
+## Installation
+
+You will need npm installed on your local machine.
+
+You can clone this repository to your local:
+
+```bash
+  git clone https://github.com/buraltintas/2nd-hand-project.git
+```
+
+Go to the project directory:
+
+```bash
+  cd my-project
+```
+
+Install required packages:
+
+```bash
+  npm install
+```
+
+Start development server on localhost:
+
+```bash
+  npm start
+```
+
+## Screenshots
+
+![Screenshot](https://i.ibb.co/r0qXC6f/1.png)
+
+![Screenshot](https://i.ibb.co/Bt2HNCW/2.png)
+
+![Screenshot](https://i.ibb.co/n0DCrWh/3.png)
+
+![Screenshot](https://i.ibb.co/VVhhg78/4.png)
+
+![Screenshot](https://i.ibb.co/kJLRywR/5.png)
+
+![Screenshot](https://i.ibb.co/yQZKJzk/6.png)
+
+![Screenshot](https://i.ibb.co/St780qK/7.png)
+
+![Screenshot](https://i.ibb.co/k9vqNv3/8.png)
+
+![Screenshot](https://i.ibb.co/jwmgjc3/9.png)
+
+![Screenshot](https://i.ibb.co/Wc3n1Ph/10.png)
