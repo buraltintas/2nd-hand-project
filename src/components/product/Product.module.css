@@ -19,8 +19,11 @@
 }
 
 .productImage {
-  height: 73.7rem;
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
   border-radius: 0.8rem;
+  object-fit: cover;
 }
 
 .infoContainer {

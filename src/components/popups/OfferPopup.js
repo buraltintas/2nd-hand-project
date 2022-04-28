@@ -42,7 +42,7 @@ const OfferPopup = (props) => {
         product: props.product.id,
         users_permissions_user: props.userId,
         offerPrice: inputRef.current.value,
-        isStatus: true,
+        isStatus: null,
       };
 
       const response = await axios({

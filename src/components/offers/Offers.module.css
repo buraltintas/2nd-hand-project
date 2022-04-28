@@ -1,7 +1,7 @@
 .offersContainer {
-  width: 77%;
   margin: 0 auto;
   margin-top: 2rem;
+  margin-bottom: 6rem;
   width: calc(100% - 5.2rem);
   display: flex;
   flex-direction: column;
@@ -11,6 +11,8 @@
   padding: 1.6rem 2.6rem;
   background-color: #fff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .tabsContainer {
@@ -18,15 +20,15 @@
 }
 
 .tabs {
-  border-bottom: 0.5px solid #e0e0e0;
+  border-bottom: 0.5px solid #e0e0e0 !important;
 }
 
 .tab {
-  color: #b1b1b1;
-  font-weight: 500;
-  font-size: 1.5rem;
-  text-transform: none;
-  font-family: 'Nunito', sans-serif;
+  color: #b1b1b1 !important;
+  font-weight: 500 !important;
+  font-size: 1.5rem !important;
+  text-transform: none !important;
+  font-family: 'Nunito', sans-serif !important;
 }
 
 .offers {
@@ -41,6 +43,7 @@
 }
 
 .productInfoContainer {
+  width: 95%;
   display: flex;
   align-items: flex-start;
 }
@@ -119,3 +122,73 @@
 .rejectButton:hover {
   background-color: #c31c1c;
 }
+
+.buyButton {
+  background-color: #4b9ce2;
+}
+
+.buyButton:hover {
+  background-color: #094e78;
+}
+
+.pendingText,
+.confirmedText,
+.rejectedText {
+  font-size: 1.5rem;
+  margin-right: 3rem;
+}
+
+.pendingText {
+  color: #faad60;
+}
+
+.confirmedText {
+  color: #4b9ce2;
+}
+
+.rejectedText {
+  color: #f77474;
+}
+
+@media (max-width: 48em) {
+  .offers {
+    margin-top: 1rem;
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 3rem;
+    padding: 1rem !important;
+  }
+
+  .textContainer {
+    width: 100% !important;
+  }
+
+  .receivedOfferText {
+    width: 100% !important;
+  }
+
+  .textContainer {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .buttonsContainer {
+    margin-right: 0;
+    /* margin-left: 20%; */
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .buttonsContainer button {
+    width: 100%;
+  }
+}
+
+/* @media (max-width: 32em) {
+  .offersContainer {
+    width: 95%;
+  }
+} */

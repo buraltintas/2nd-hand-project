@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
   const location = useLocation();
   const from = location.state ? location.state.from : '/';
 
-  useEffect(() => {
+  const tokenAuth = () => {
     if (cookies.token) {
       setToken(cookies.token);
       setIsLoggedIn(true);
@@ -29,11 +29,14 @@ const AuthProvider = ({ children }) => {
       axios
         .get('https://bootcamp.akbolat.net/users/me')
         .then((res) => {
-          console.log(res.data);
           setUser(res.data);
         })
         .catch((err) => setError(err));
     }
+  };
+
+  useEffect(() => {
+    tokenAuth();
   }, [cookies.token]);
 
   const logoutHandler = () => {
@@ -116,6 +119,7 @@ const AuthProvider = ({ children }) => {
         error,
         token,
         logoutHandler,
+        tokenAuth,
       }}
     >
       {children}

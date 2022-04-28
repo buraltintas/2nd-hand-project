@@ -43,3 +43,15 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+@media (max-width: 32em) {
+  .accountContainer {
+    width: 95%;
+  }
+
+  .userContainer {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
+}

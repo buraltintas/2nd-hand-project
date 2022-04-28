@@ -10,14 +10,14 @@
 }
 
 .tab {
-  color: #525252;
-  font-weight: 500;
-  font-size: 1.8rem;
-  text-transform: none;
-  font-family: 'Nunito', sans-serif;
+  color: #525252 !important;
+  font-weight: 500 !important;
+  font-size: 1.8rem !important;
+  text-transform: none !important;
+  font-family: 'Nunito', sans-serif !important;
 }
 
-@media (max-width: 32em) {
+@media (max-width: 43em) {
   .categoriesContainer {
     width: 95%;
   }

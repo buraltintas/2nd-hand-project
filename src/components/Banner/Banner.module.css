@@ -9,7 +9,7 @@
   border-radius: 0.8rem;
 }
 
-@media (max-width: 32em) {
+@media (max-width: 43em) {
   .bannerContainer {
     width: 95%;
   }

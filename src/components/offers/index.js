@@ -7,12 +7,20 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import styles from './Offers.module.css';
+import ReceivedOffers from './ReceivedOffers';
+import GivenOffers from './GivenOffers';
 
 const Offers = () => {
   const [cookies] = useCookies(['token']);
   const [value, setValue] = useState(1);
   const [givenOffers, setGivenOffers] = useState([]);
   const [receivedOffers, setReceivedOffers] = useState([]);
+
+  const [showReceivedOffers, setShowReceivedOffers] = useState(
+    () => () => true
+  );
+
+  const [offers, setOffers] = useState([]);
 
   const navigate = useNavigate();
 
@@ -56,9 +64,6 @@ const Offers = () => {
       });
   };
 
-  console.log(receivedOffers);
-  console.log(givenOffers);
-
   useEffect(() => {
     if (user) {
       getGivenOffers();
@@ -89,30 +94,9 @@ const Offers = () => {
         </Box>
       </div>
 
-      {receivedOffers?.map((offer) => (
-        <div key={offer.id} className={styles.offers}>
-          <div className={styles.productInfoContainer}>
-            <div className={styles.imageContainer}>
-              <img
-                className={styles.productImage}
-                src={`https://bootcamp.akbolat.net/${offer?.image?.url}`}
-                alt={offer.name}
-              />
-            </div>
-            <div className={styles.textContainer}>
-              <p className={styles.productName}>{offer.name}</p>
-              <div className={styles.receivedOfferText}>
-                Alınan teklif:&nbsp; <strong>120 TL</strong>
-              </div>
-            </div>
-          </div>
+      {value === 1 && <ReceivedOffers receivedOffers={receivedOffers} />}
 
-          <div className={styles.buttonsContainer}>
-            <button className={styles.confirmButton}>Onayla</button>
-            <button className={styles.rejectButton}>Reddet</button>
-          </div>
-        </div>
-      ))}
+      {value === 2 && <GivenOffers givenOffers={givenOffers} />}
     </section>
   );
 };

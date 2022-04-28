@@ -24,6 +24,7 @@
 
 @media (max-width: 43em) {
   .productsContainer {
+    width: 95%;
     grid-template-columns: repeat(2, 1fr);
   }
 }
