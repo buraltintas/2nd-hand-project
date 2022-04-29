@@ -1,4 +1,8 @@
-![Logo](https://i.ibb.co/T1yrJpt/logo.png)
+<p align="center">
+  <img 
+    src="https://i.ibb.co/T1yrJpt/logo.png"
+  >
+</p>
 
 # 2nd Hand Project
 
