@@ -6,7 +6,7 @@ This project is built with React.js for graduation of Protein React Bootcamp. Yo
 
 # Who is this app for?
 
-In this application user can sell their used products or they can buy others products that are on sale. Instead of the current price, users can also make offers for the products.
+In this application users can sell their used products or they can buy others products that are on sale. Instead of the current price, users can also make offers for the products.
 
 # How to use?
 
@@ -41,7 +41,7 @@ You can clone this repository to your local:
 Go to the project directory:
 
 ```bash
-  cd my-project
+  cd 2nd-hand-project
 ```
 
 Install required packages:
@@ -60,19 +60,19 @@ Start development server on localhost:
 
 ![Screenshot](https://i.ibb.co/r0qXC6f/1.png)
 
-![Screenshot](https://i.ibb.co/Bt2HNCW/2.png)
+![Screenshot](https://i.ibb.co/BrsGD8D/Screen-Shot-2022-04-29-at-14-09-39.png)
 
 ![Screenshot](https://i.ibb.co/n0DCrWh/3.png)
 
-![Screenshot](https://i.ibb.co/VVhhg78/4.png)
+![Screenshot](https://i.ibb.co/Nm8kDHJ/Screen-Shot-2022-04-29-at-14-10-26.png)
 
 ![Screenshot](https://i.ibb.co/kJLRywR/5.png)
 
-![Screenshot](https://i.ibb.co/yQZKJzk/6.png)
+![Screenshot](https://i.ibb.co/G7jtxPw/Screen-Shot-2022-04-29-at-14-10-46.png)
 
-![Screenshot](https://i.ibb.co/St780qK/7.png)
+![Screenshot](https://i.ibb.co/grtJWCk/Screen-Shot-2022-04-29-at-14-11-24.png)
 
-![Screenshot](https://i.ibb.co/k9vqNv3/8.png)
+![Screenshot](https://i.ibb.co/h9BPyBj/Screen-Shot-2022-04-29-at-14-13-20.png)
 
 ![Screenshot](https://i.ibb.co/jwmgjc3/9.png)
 
