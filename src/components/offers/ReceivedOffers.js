@@ -103,6 +103,8 @@ const ReceivedOffers = (props) => {
     }
   };
 
+  console.log(offers);
+
   return (
     <>
       {!isLoading &&

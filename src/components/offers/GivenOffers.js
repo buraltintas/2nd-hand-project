@@ -20,6 +20,8 @@ const GivenOffers = (props) => {
     } else {
       setIsLoading(true);
 
+      console.log(id);
+
       axios.defaults.headers.common = {
         Authorization: `Bearer ${cookies.token}`,
       };
@@ -56,6 +58,7 @@ const GivenOffers = (props) => {
     <>
       {!isLoading &&
         props.givenOffers?.map((offer) => {
+          console.log(offer.product);
           if (!offer.product?.isSold) {
             return (
               <div key={offer.id} className={styles.offers}>

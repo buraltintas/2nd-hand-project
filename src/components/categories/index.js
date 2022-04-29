@@ -15,6 +15,10 @@ const Categories = () => {
     useContext(ProductContext);
 
   useEffect(() => {
+    setValue(categoryValue);
+  }, [categoryValue]);
+
+  useEffect(() => {
     axios
       .get('https://bootcamp.akbolat.net/categories')
       .then((res) => {
@@ -23,9 +27,7 @@ const Categories = () => {
       .catch((err) => {
         alert(err);
       });
-
-    setValue(categoryValue);
-  }, [categoryValue]);
+  }, []);
 
   const handleChange = (event, newValue) => {
     if (newValue === 0) {

@@ -39,8 +39,6 @@ const NewProductForm = () => {
   const statusRef = useRef();
   const priceRef = useRef();
 
-  console.log(files);
-
   const submitProduct = async (e) => {
     e.preventDefault();
 

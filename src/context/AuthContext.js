@@ -29,6 +29,7 @@ const AuthProvider = ({ children }) => {
       axios
         .get('https://bootcamp.akbolat.net/users/me')
         .then((res) => {
+          console.log('auth/me', res.data);
           setUser(res.data);
         })
         .catch((err) => setError(err));
@@ -64,6 +65,7 @@ const AuthProvider = ({ children }) => {
       if (response.status === 200) {
         setToken(response.data.jwt);
         document.cookie = `token=${response.data.jwt}`;
+        console.log('auth/login', response.data);
         setUser(response.data.user);
         setIsLoggedIn(true);
         setIsLoading(false);
