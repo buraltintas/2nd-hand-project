@@ -39,8 +39,16 @@ const NewProductForm = () => {
   const statusRef = useRef();
   const priceRef = useRef();
 
+  console.log(files);
+
   const submitProduct = async (e) => {
     e.preventDefault();
+
+    if (files.length < 1) {
+      setError('En 1 bir resim ekleyiniz!');
+      return;
+    }
+
     setIsLoading(true);
 
     const selectedCategoryId = categories.findIndex(
@@ -270,6 +278,7 @@ const NewProductForm = () => {
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                   required
+                  min={1}
                   placeholder='Bir fiyat girin'
                   className={styles.priceInput}
                   id='price'

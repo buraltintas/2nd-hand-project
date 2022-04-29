@@ -81,3 +81,8 @@ Start development server on localhost:
 ![Screenshot](https://i.ibb.co/jwmgjc3/9.png)
 
 ![Screenshot](https://i.ibb.co/Wc3n1Ph/10.png)
+
+## Working on
+
+- Store categories that user sorted of home page in url query
+- Testing

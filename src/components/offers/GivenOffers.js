@@ -56,7 +56,7 @@ const GivenOffers = (props) => {
     <>
       {!isLoading &&
         props.givenOffers?.map((offer) => {
-          if (!offer.product.isSold) {
+          if (!offer.product?.isSold) {
             return (
               <div key={offer.id} className={styles.offers}>
                 <div className={styles.productInfoContainer}>
@@ -78,11 +78,11 @@ const GivenOffers = (props) => {
                   </div>
                 </div>
 
-                {!offer.product.isSold && offer.isStatus === null && (
+                {!offer.product?.isSold && offer.isStatus === null && (
                   <p className={styles.pendingText}>Onay bekliyor</p>
                 )}
 
-                {!offer.product.isSold && offer.isStatus === true && (
+                {!offer.product?.isSold && offer.isStatus === true && (
                   <div className={styles.buttonsContainer}>
                     <button
                       onClick={() => buyHandler(offer.product.id)}
@@ -94,11 +94,11 @@ const GivenOffers = (props) => {
                   </div>
                 )}
 
-                {!offer.product.isSold && offer.isStatus === false && (
+                {!offer.product?.isSold && offer.isStatus === false && (
                   <p className={styles.rejectedText}>Reddedildi</p>
                 )}
 
-                {offer.product.isSold && (
+                {offer.product?.isSold && (
                   <p className={styles.purchasedText}>Satın Alındı</p>
                 )}
               </div>

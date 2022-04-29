@@ -108,7 +108,7 @@ const ReceivedOffers = (props) => {
       {!isLoading &&
         offers.length > 0 &&
         offers.map((offer) => {
-          if (!offer.product.isSold) {
+          if (!offer.product?.isSold) {
             return (
               <div key={offer.id} className={styles.offers}>
                 <div className={styles.productInfoContainer}>
@@ -130,7 +130,7 @@ const ReceivedOffers = (props) => {
                   </div>
                 </div>
 
-                {!offer.product.isSold && offer.isStatus === null && (
+                {!offer.product?.isSold && offer.isStatus === null && (
                   <div className={styles.buttonsContainer}>
                     <button
                       onClick={() => acceptOfferHandler(offer.id)}
@@ -147,11 +147,11 @@ const ReceivedOffers = (props) => {
                   </div>
                 )}
 
-                {!offer.product.isSold && offer.isStatus === true && (
+                {!offer.product?.isSold && offer.isStatus === true && (
                   <p className={styles.confirmedText}>Onaylandı</p>
                 )}
 
-                {offer.product.isSold && (
+                {offer.product?.isSold && (
                   <p className={styles.purchasedText}>Satıldı</p>
                 )}
 
