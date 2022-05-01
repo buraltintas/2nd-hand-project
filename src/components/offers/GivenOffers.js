@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
+import { ProductContext } from '../../context/ProductContext';
 import styles from './Offers.module.css';
 import LoadingSpinner from '../loading/LoadingSpinner';
 import DoneIcon from '../../constants/DoneIcon';
@@ -10,6 +11,7 @@ const GivenOffers = (props) => {
   const [cookies] = useCookies(['token']);
   const [isPurchased, setIsPurchased] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { productSelectHandler } = useContext(ProductContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -54,11 +56,16 @@ const GivenOffers = (props) => {
     }
   };
 
+  const productClickHandler = (id) => {
+    navigate(`/products/${id}`);
+    productSelectHandler(id);
+    window.scroll({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       {!isLoading &&
         props.givenOffers?.map((offer) => {
-          console.log(offer.product);
           if (!offer.product?.isSold) {
             return (
               <div key={offer.id} className={styles.offers}>
@@ -66,12 +73,23 @@ const GivenOffers = (props) => {
                   <div className={styles.imageContainer}>
                     <img
                       className={styles.productImage}
-                      src={`https://bootcamp.akbolat.net/${offer?.product?.image?.url}`}
+                      src={
+                        offer?.product?.image?.url
+                          ? `https://bootcamp.akbolat.net/${offer?.product?.image?.url}`
+                          : 'https://tokelstand.com/wp-content/uploads/2016/11/product-placeholder.jpg'
+                      }
                       alt={offer.name}
                     />
                   </div>
                   <div className={styles.textContainer}>
-                    <p className={styles.productName}>{offer?.product?.name}</p>
+                    <p
+                      onClick={() => productClickHandler(offer.product.id)}
+                      className={styles.productName}
+                    >
+                      {offer?.product?.name
+                        ? offer?.product?.name
+                        : 'Ürün adı belirtilmemiş'}
+                    </p>
                     <div className={styles.receivedOfferText}>
                       Verilen teklif:&nbsp;{' '}
                       <strong>

@@ -100,24 +100,44 @@ const Product = () => {
           <div className={styles.imageContainer}>
             <img
               className={styles.productImage}
-              src={`https://bootcamp.akbolat.net/${productToShow?.image?.url}`}
-              alt='productToShow?.name'
+              src={
+                productToShow?.image?.url
+                  ? `https://bootcamp.akbolat.net/${productToShow?.image?.url}`
+                  : 'https://tokelstand.com/wp-content/uploads/2016/11/product-placeholder.jpg'
+              }
+              alt={
+                productToShow?.name
+                  ? productToShow?.name
+                  : 'Ürün Adı Girilmemiş'
+              }
             />
           </div>
 
           <div className={styles.infoContainer}>
-            <h1>{productToShow?.name}</h1>
+            <h1>
+              {productToShow?.name
+                ? productToShow?.name
+                : 'Ürün Adı Girilmemiş'}
+            </h1>
             <h1 className={styles.priceTop}>
               {productToShow?.price?.toLocaleString('tr-TR')} TL
             </h1>
             <div className={styles.infoDetailsContainer}>
               <div className={styles.detailContainer}>
                 <span className={styles.title}>Marka:</span>
-                <span className={styles.info}>{productToShow?.brand}</span>
+                <span className={styles.info}>
+                  {productToShow?.brand
+                    ? productToShow?.brand
+                    : 'Belirtilmemiş'}
+                </span>
               </div>
               <div className={styles.detailContainer}>
                 <span className={styles.title}>Renk:</span>
-                <span className={styles.info}>{productToShow?.color}</span>
+                <span className={styles.info}>
+                  {productToShow?.color
+                    ? productToShow?.color
+                    : 'Belirtilmemiş'}
+                </span>
               </div>
               <div className={styles.detailContainer}>
                 <span className={styles.title}>Kullanım durumu:</span>
@@ -165,7 +185,11 @@ const Product = () => {
             )}
 
             <h2>Açıklama</h2>
-            <p>{productToShow?.description}</p>
+            <p>
+              {productToShow?.description
+                ? productToShow?.description
+                : 'Belirtilmemiş'}
+            </p>
           </div>
         </section>
       ) : (

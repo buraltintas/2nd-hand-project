@@ -62,6 +62,12 @@
 
 .productName {
   font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.productName:hover {
+  text-decoration: underline;
 }
 
 .receivedOfferText {
@@ -85,6 +91,7 @@
 .productImage {
   height: 8.4rem;
   width: auto;
+  max-width: 85%;
   object-fit: cover;
   border-radius: 0.8rem;
 }

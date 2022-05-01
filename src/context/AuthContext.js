@@ -29,7 +29,6 @@ const AuthProvider = ({ children }) => {
       axios
         .get('https://bootcamp.akbolat.net/users/me')
         .then((res) => {
-          console.log('auth/me', res.data);
           setUser(res.data);
         })
         .catch((err) => setError(err));

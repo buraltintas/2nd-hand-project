@@ -21,7 +21,7 @@ const Card = (props) => {
     } else {
       setProductsToShow(
         props.products.filter(
-          (product) => product.category.name === selectedCategory
+          (product) => product?.category?.name === selectedCategory
         )
       );
     }
@@ -42,7 +42,11 @@ const Card = (props) => {
           >
             <img
               className={styles.productImage}
-              src={`https://bootcamp.akbolat.net${product?.image?.url}`}
+              src={
+                product?.image?.url
+                  ? `https://bootcamp.akbolat.net${product?.image?.url}`
+                  : 'https://tokelstand.com/wp-content/uploads/2016/11/product-placeholder.jpg'
+              }
               alt={product.name}
             />
 
