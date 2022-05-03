@@ -89,6 +89,7 @@
 }
 
 .productImage {
+  cursor: pointer;
   height: 8.4rem;
   width: auto;
   max-width: 85%;

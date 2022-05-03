@@ -73,6 +73,7 @@ const GivenOffers = (props) => {
                   <div className={styles.imageContainer}>
                     <img
                       className={styles.productImage}
+                      onClick={() => productClickHandler(offer.product.id)}
                       src={
                         offer?.product?.image?.url
                           ? `https://bootcamp.akbolat.net/${offer?.product?.image?.url}`

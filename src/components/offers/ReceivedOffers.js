@@ -122,6 +122,7 @@ const ReceivedOffers = (props) => {
                 <div className={styles.productInfoContainer}>
                   <div className={styles.imageContainer}>
                     <img
+                      onClick={() => productClickHandler(offer?.product?.id)}
                       className={styles.productImage}
                       src={
                         offer?.product?.image?.url
