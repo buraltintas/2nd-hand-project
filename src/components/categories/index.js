@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ProductContext } from '../../context/ProductContext';
 import axios from 'axios';
 
@@ -8,15 +9,22 @@ import Box from '@mui/material/Box';
 import styles from './Categories.module.css';
 
 const Categories = () => {
-  const [value, setValue] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [value, setValue] = useState(
+    searchParams.get('category') ? searchParams.get('category') * 1 + 1 : 0
+  );
   const [categories, setCategories] = useState([]);
+
+  const categoryParam = searchParams.get('category');
 
   const { categoryHandler, newCategoryValue, categoryValue } =
     useContext(ProductContext);
 
   useEffect(() => {
-    setValue(categoryValue);
-  }, [categoryValue]);
+    if (categoryParam && categories) {
+      categoryHandler(categories[categoryParam]?.name);
+    }
+  }, [categories, categoryParam]);
 
   useEffect(() => {
     axios
@@ -32,8 +40,10 @@ const Categories = () => {
   const handleChange = (event, newValue) => {
     if (newValue === 0) {
       categoryHandler('Hepsi');
+      setSearchParams();
     } else {
       categoryHandler(categories[newValue - 1].name);
+      setSearchParams({ category: newValue - 1 });
     }
 
     newCategoryValue(newValue);
@@ -48,7 +58,7 @@ const Categories = () => {
             style: { background: '#4B9CE2', height: '2px', color: '#4B9CE2' },
           }}
           className={styles.tabs}
-          value={value}
+          value={value * 1}
           onChange={handleChange}
           variant='scrollable'
           scrollButtons={false}

@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useSearchParams } from 'react-router-dom';
 
 const ProductContext = React.createContext();
 
 const ProductProvider = ({ children }) => {
+  const [searchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('Hepsi');
   const [selectedProductId, setSelectedProductId] = useState(null);
-  const [categoryValue, setCategoryValue] = useState(0);
+  const [categoryValue, setCategoryValue] = useState(
+    searchParams.get('category') ? searchParams.get('category') : 0
+  );
   const [error, setError] = useState(null);
 
   const categoryHandler = (category) => {

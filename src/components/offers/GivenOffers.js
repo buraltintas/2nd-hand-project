@@ -65,6 +65,7 @@ const GivenOffers = (props) => {
   return (
     <>
       {!isLoading &&
+        props.givenOffers &&
         props.givenOffers?.map((offer) => {
           if (!offer.product?.isSold) {
             return (
