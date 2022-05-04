@@ -12,7 +12,7 @@ const Products = () => {
   }, []);
 
   return (
-    <section className={styles.productsContainer}>
+    <section data-testid='products' className={styles.productsContainer}>
       <Card products={products} />
     </section>
   );

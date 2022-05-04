@@ -97,7 +97,7 @@ const OfferPopup = (props) => {
   }, [offerInput]);
 
   return (
-    <div className={styles.offerPopupContainer}>
+    <div data-testid='offer-popup' className={styles.offerPopupContainer}>
       {!isLoading && (
         <div className={styles.dialogContainer}>
           <div

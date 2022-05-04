@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-
 import UserImage from '../../constants/UserImage';
 import styles from './Account.module.css';
 import Offers from '../offers';

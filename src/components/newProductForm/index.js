@@ -208,7 +208,7 @@ const NewProductForm = () => {
               <div className={styles.selectContainer}>
                 <div>
                   <label htmlFor='category'>Kategori</label>
-                  <select ref={categoryRef} required>
+                  <select id='category' ref={categoryRef} required>
                     <option
                       className={styles.optionPlaceholder}
                       value=''

@@ -29,13 +29,14 @@ const Card = (props) => {
 
   return (
     <>
-      {productsToShow.length < 1 && selectedCategory !== 'Hepsi' && (
+      {productsToShow?.length < 1 && selectedCategory !== 'Hepsi' && (
         <h1 className={styles.notFoundText}>Bu kategoride ürün bulunmuyor.</h1>
       )}
 
-      {productsToShow.map((product) => {
+      {productsToShow?.map((product) => {
         return (
           <div
+            data-testid='card'
             onClick={() => productClickHandler(product.id)}
             key={product.id}
             className={styles.cardContainer}

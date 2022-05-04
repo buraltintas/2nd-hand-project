@@ -49,7 +49,7 @@ const BuyPopup = (props) => {
   };
 
   return (
-    <div className={styles.buyPopupContainer}>
+    <div data-testid='buy-popup' className={styles.buyPopupContainer}>
       {!isLoading && (
         <div className={styles.dialogContainer}>
           <h1>Satın Al</h1>

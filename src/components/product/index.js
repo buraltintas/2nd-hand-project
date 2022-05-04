@@ -96,7 +96,7 @@ const Product = () => {
   return (
     <>
       {!loading ? (
-        <section className={styles.productContainer}>
+        <section data-testid='product' className={styles.productContainer}>
           <div className={styles.imageContainer}>
             <img
               className={styles.productImage}

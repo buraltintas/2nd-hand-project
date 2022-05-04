@@ -67,9 +67,6 @@ const Offers = () => {
     }
   }, []);
 
-  console.log('GivenOffers', givenOffers);
-  console.log('ReceivedOffers', receivedOffers);
-
   return (
     <section className={styles.offersContainer}>
       <div className={styles.tabsContainer}>

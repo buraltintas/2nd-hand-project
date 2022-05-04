@@ -30,7 +30,7 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.headerContainer}>
+    <header data-testid='header' className={styles.headerContainer}>
       <div className={styles.headerElements}>
         <div onClick={goToHome} className={styles.logoContainer}>
           <Logo />

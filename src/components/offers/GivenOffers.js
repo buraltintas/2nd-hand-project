@@ -22,8 +22,6 @@ const GivenOffers = (props) => {
     } else {
       setIsLoading(true);
 
-      console.log(id);
-
       axios.defaults.headers.common = {
         Authorization: `Bearer ${cookies.token}`,
       };
