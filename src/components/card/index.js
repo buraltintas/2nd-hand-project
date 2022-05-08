@@ -41,15 +41,17 @@ const Card = (props) => {
             key={product.id}
             className={styles.cardContainer}
           >
-            <img
-              className={styles.productImage}
-              src={
-                product?.image?.url
-                  ? `https://bootcamp.akbolat.net${product?.image?.url}`
-                  : 'https://tokelstand.com/wp-content/uploads/2016/11/product-placeholder.jpg'
-              }
-              alt={product.name}
-            />
+            <div className={styles.imageContainer}>
+              <img
+                className={styles.productImage}
+                src={
+                  product?.image?.url
+                    ? `https://bootcamp.akbolat.net${product?.image?.url}`
+                    : 'https://tokelstand.com/wp-content/uploads/2016/11/product-placeholder.jpg'
+                }
+                alt={product.name}
+              />
+            </div>
 
             <div className={styles.brandAndColorContainer}>
               <span className={styles.brandName}>{product.brand}</span>

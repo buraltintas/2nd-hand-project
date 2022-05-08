@@ -21,7 +21,8 @@ In this application users can sell their used products or they can buy others pr
 - If an item has already been sold, the warning 'This Item Is Not For Sale' is displayed.
 - If you make an offer for a product, you must wait for the owner to accept or reject it.
 - You can view the offers you have given and received on the 'My Account' page. You can evaluate the offers you receive. If your offers are accepted, you can complete the purchase.
-- You can share the link of products with your friends so they can buy or sell their used products.
+- You can go to product page with clicking on product name or product image at 'My Account' page.
+- You can share the link of products with your friends so they can buy or sell their used products. You can also share links with sorted products by categories.
 - Enjoy!
 
 ## Demo
@@ -58,6 +59,12 @@ Start development server on localhost:
 
 ```bash
   npm start
+```
+
+Start testing:
+
+```bash
+  npm run test
 ```
 
 ## Working on
