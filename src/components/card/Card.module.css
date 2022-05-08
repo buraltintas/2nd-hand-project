@@ -35,6 +35,7 @@
 
 .productImage {
   height: 29.7rem;
+  max-height: 100%;
   max-width: 90%;
   border-radius: 0.8rem;
   transition: all 0.3s;

@@ -17,7 +17,7 @@
   }
 }
 
-@media (max-width: 90em) {
+@media (max-width: 64em) {
   .productsContainer {
     grid-template-columns: repeat(3, 1fr);
   }
