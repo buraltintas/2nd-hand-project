@@ -67,10 +67,6 @@ Start testing:
   npm run test
 ```
 
-## Working on
-
-- Testing
-
 ## Screenshots
 
 ![Screenshot](https://i.ibb.co/r0qXC6f/1.png)
